@@ -1,0 +1,4 @@
+tweepy==3.8.0
+pandas==0.22.0
+requests==2.21.0
+python_dateutil==2.8.1
