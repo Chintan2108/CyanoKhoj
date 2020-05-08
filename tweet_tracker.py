@@ -3,17 +3,17 @@ from tweepy import API
 from tweepy import Cursor
 from datetime import datetime
 from dateutil import parser
-import csv
+import csv, json
 import requests
 import pandas as pd
+
+secret = pd.read_csv('./local/secret.csv')
 
 def fetchTweets(info=False):
     '''
     This function tracks the the twitter stream and scrapes tweets and related metadata which contain
     a specific set of keywords relating to Cyanobacterial blooms.
     '''
-
-    secret = pd.read_csv('./local/secret.csv')
 
     access_token = secret['twitter_access_token'][0]
     access_token_secret = secret['twitter_access_secret'][0]
@@ -45,7 +45,7 @@ def fetchTweets(info=False):
                 tweets_data['time'].append(str(tweet.created_at))
         except:
             continue
-    
+    '''
     try:
         with open('prod.csv', 'w', encoding='utf-8') as file:
             writer = csv.writer(file, delimiter=',')
@@ -53,6 +53,7 @@ def fetchTweets(info=False):
             writer.writerows(zip(*tweets_data.values()))
     except IOError as e:
         print(e)
+    '''
 
     if info:
         f = open('tweet_info.txt','w')
@@ -74,18 +75,25 @@ def generateGeocodes(df):
     '''
     GEOCODE_URL = 'https://maps.googleapis.com/maps/api/geocode'
 
-    api_key = "AIzaSyBSRBZ5TxNXO_7HnMoEK0DrhfDWJdiG-gk"
-    coordinates = {'lat':[], 'lng':[]}
+    api_key = secret['geocode_api_secret'][0]
+    coordinates = []
 
     for address in df['place']:
+        row = []
         if address != "00":
             api_response = requests.get(GEOCODE_URL + '/json?address={0}&key={1}'.format(address, api_key))
             api_response_dict = api_response.json()
         
         if api_response_dict['status'] == 'OK':
-            coordinates['lat'].append(api_response_dict['results'][0]['geometry']['location']['lat'])
-            coordinates['lng'].append(api_response_dict['results'][0]['geometry']['location']['lng'])
-    
+            row.append(address)
+            #coordinates['loc'].append(address)
+            row.append(api_response_dict['results'][0]['geometry']['location']['lat'])
+            row.append(api_response_dict['results'][0]['geometry']['location']['lng'])
+        
+        if len(row) > 0:
+            coordinates.append(row)
+        
+    '''
     try:
         with open('coordinates.csv', 'w', encoding='utf-8') as file:
             writer = csv.writer(file, delimiter=',')
@@ -93,9 +101,10 @@ def generateGeocodes(df):
             writer.writerows(zip(*coordinates.values()))
     except IOError as e:
         print(e)
+    '''
 
-    return coordinates
+    return json.dumps(coordinates)
 
-generateGeocodes(fetchTweets())
+print(generateGeocodes(fetchTweets()))
     
 
