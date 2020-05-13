@@ -20,7 +20,7 @@ else {
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>CyanoKhoj - Home</title>
-  <script src="http://maps.google.com/maps/api/js?key=AIzaSyD6o1aJi4G89tuJzF9JFa1eV_dAwt7hsmU" type="text/javascript"></script>
+  <script src="http://maps.google.com/maps/api/js?key=API_KEY_HERE" type="text/javascript"></script>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
