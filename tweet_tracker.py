@@ -35,7 +35,7 @@ def fetchTweets(info=False):
                          wait_on_rate_limit = True,
                          lang="en").items():
         try:
-            if ((datetime.now() - parser.parse(str(tweet.created_at))).days < 2) and (not tweet.retweeted) and ('RT @' not in tweet.text):
+            if ((datetime.now() - parser.parse(str(tweet.created_at))).days < 7) and (not tweet.retweeted) and ('RT @' not in tweet.text):
                 #webbrowser.open_new_tab(url+str(tweet.id))
                 tweets_data['id'].append(str(tweet.id))
                 tweets_data['text'].append(str(tweet.text))
@@ -78,7 +78,7 @@ def generateGeocodes(df):
     api_key = secret['geocode_api_secret'][0]
     coordinates = []
 
-    for address in df['place']:
+    for address, text in zip(df['place'],df['text']):
         row = []
         if address != "00":
             api_response = requests.get(GEOCODE_URL + '/json?address={0}&key={1}'.format(address, api_key))
@@ -89,8 +89,10 @@ def generateGeocodes(df):
             #coordinates['loc'].append(address)
             row.append(api_response_dict['results'][0]['geometry']['location']['lat'])
             row.append(api_response_dict['results'][0]['geometry']['location']['lng'])
+
         
         if len(row) > 0:
+            row.append("https" + text.split('https')[-1])
             coordinates.append(row)
         
     '''
