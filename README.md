@@ -29,7 +29,7 @@ CyanoKhoj is a web-app which employs the citizen science program by tracking the
 
 ### Tweet Analysis and Location Extraction
 
-This is done by scraping tweets real-time feed and filtering them based on the project specific keywords and hashtags which help in identifying tweets about algal bloom infested waterbodies. Thereafter the location tags are extracted from the filtered tweets and are geocoded. These locations are sent to Google Map and Google Earth Engine and a map highlighting the potential cyanobloom locations.
+This is done by scraping tweets real-time feed and filtering them based on the project specific keywords and hashtags (using NLP techniques) which help in identifying tweets about algal bloom infested waterbodies. Thereafter the location tags are extracted from the filtered tweets and are geocoded. These locations are sent to Google Map and Google Earth Engine and a map highlighting the potential cyanobloom locations.
 
 The following repositories contain detailed workflow and information the tweet analysis and location extraction task:
 * [Location Fetcher v1.8](https://github.com/Chintan2108/LocationFetcher-v1.8)
