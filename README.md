@@ -45,4 +45,4 @@ This webapp has been deployed on GCP in the Apache server. Technicalities includ
 
 ## Contribution
 
-Please feel free to raise issues and fix any existing ones. Further details can be found in our [code of conduct](https://github.com/Chintan2108/Cloud-Removal-in-Satellite-Images-using-Conditional-Generative-Adversarial-Networks/blob/master/CODE_OF_CONDUCT.md).
+Please feel free to raise issues and fix any existing ones. Further details can be found in our [code of conduct](https://github.com/Chintan2108/CyanoKhoj/blob/master/CODE_OF_CONDUCT.md).
