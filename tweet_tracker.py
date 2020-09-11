@@ -24,7 +24,7 @@ def fetchTweets(info=False):
     auth.set_access_token(access_token, access_token_secret)
     api = API(auth)
 
-    tweets_data = {'id':[], 'text':[], 'place':[], 'time':[]}
+    tweets_data = {'id':[], 'text':[], 'place':[], 'time':[], 'url':[]}
 
     for tweet in Cursor(api.search, 
                          q = 'BlueGreenAlgae OR CyanoBacteria OR cyanotracker OR anabaena OR microcystis OR cyanotoxins OR toxic algae OR algae bloom OR algal bloom OR #CyanoBacteria OR #AlgaeBloom OR #CitSci OR #CyanoBacteriaBlooms',
@@ -43,6 +43,7 @@ def fetchTweets(info=False):
                     tweets_data['place'].append("00")
                 tweets_data['place'].append(str(tweet.user.location))
                 tweets_data['time'].append(str(tweet.created_at))
+                tweets_data['url'].append('https://twitter.com/' + str(tweet.user.screen_name) + '/status/' + str(tweet.id))
         except:
             continue
     '''
@@ -78,7 +79,7 @@ def generateGeocodes(df):
     api_key = secret['geocode_api_secret'][0]
     coordinates = []
 
-    for address, text in zip(df['place'],df['text']):
+    for address, url in zip(df['place'],df['url']):
         row = []
         if address != "00":
             api_response = requests.get(GEOCODE_URL + '/json?address={0}&key={1}'.format(address, api_key))
@@ -92,7 +93,7 @@ def generateGeocodes(df):
 
         
         if len(row) > 0:
-            row.append("https" + text.split('https')[-1])
+            row.append(url)
             coordinates.append(row)
         
     '''

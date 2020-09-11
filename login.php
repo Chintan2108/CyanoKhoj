@@ -61,6 +61,12 @@
 								Forgot?
 							</a>
 						</div>
+						
+						<div>
+							<a href="#" class="txt1" style="color: #086f34" onclick="alert('Please login with username: admin & password: admin for demo.')">
+								Demo
+							</a>	
+						</div>
 					</div>
 
 					<div class="container-login100-form-btn m-t-17">

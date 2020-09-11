@@ -8,6 +8,7 @@ else {
 
   $json = exec("python3 tweet_tracker.py");
   $arr = json_decode($json, TRUE);
+
 }
 
 ?>
@@ -20,7 +21,7 @@ else {
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>CyanoKhoj - Home</title>
-  <script src="http://maps.google.com/maps/api/js?key=API_KEY_HERE" type="text/javascript"></script>
+  <script src="http://maps.google.com/maps/api/js?key=enter_api_key_here" type="text/javascript"></script>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -126,7 +127,7 @@ else {
       <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
         <div class="col-xl-12 col-lg-8">
           <h1>CyanoHAB monitoring using Twitter Data<span>.</span></h1>
-          <h2 style="text-align: justify;" >This is a geo-spatial web platform for automated real time detection of toxic aquatic microbe - Cyanobacterial Harmful Algal blooms (CyanoHABs). The data collection for this platform employs citizen science using Twitter Platform. Remote Sensing data analysis can be performed on the Google Earth Engine (GEE) dashboard for Sentinel-3. This strengthens the retrospective research valley by constant bio-volume intensity monitoring of remote sensing data and ultimately serve as a long term eye to track and arrest CyanoHAB, a biological threat causing environmental imbalance. </h2>
+          <h2 style="text-align: justify;" >This is a geo-spatial web platform for automated real time detection of toxic aquatic microbe - Cyanobacterial Harmful Algal blooms (CyanoHABs). The data collection for this platform employs citizen science using Twitter Platform. Remote Sensing data analysis can be performed on the Google Earth Engine (GEE) dashboard for Sentinel-3. This strengthens the retrospective research valley by constant bio-volume intensity monitoring of remote sensing data and ultimately serve as a long term eye to track and arrest CyanoHAB, a biological threat causing environmental imbalance. <a href="https://docs.google.com/presentation/d/e/2PACX-1vQ9rbuXLe4Ga_1BsF5sj_-rRUBOJvv5pcW5d0HjJfu5JBLIXkWefIR7O75EfQw_PyBVa5lEw2LfH-7O/pub?start=false&loop=false&delayms=3000" target="_blank">Project Poster</a> </h2>
         </div>
       </div>
 
