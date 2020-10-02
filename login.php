@@ -34,43 +34,51 @@
 <body>
 	
 	<div class="limiter">
-		<div class="container-login100">
+	  
+		<h1 class="logo mx-2 pt-2">CyanoKhoj<span>.</span></h1>	
+
+  		<div class="container-login100">
+
 			<div class="wrap-login100 p-t-50 p-b-90">
-				<form class="login100-form validate-form flex-sb flex-w" action="validate_login.php" method="POST">
-					<span class="login100-form-title p-b-51">
+
+				<form class="login100-form validate-form flex-sb flex-w" action="validate_login.php" method="POST" autocomplete="off">
+					<span class="login100-form-title mb-5">
 						Login
 					</span>
 
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
-						<input class="input100" type="text" name="uname" placeholder="Username">
+						<i class="fa fa-user" aria-hidden="true"></i>
+						<input class="input100" type="text" name="uname" id="uname" placeholder="Username">
 						<span class="focus-input100"></span>
 					</div>
 					
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<i class="fa fa-lock" aria-hidden="true"></i>
+						<input class="input100" type="password" name="pass" id="pass" placeholder="Password">
 						<span class="focus-input100"></span>
+						<i class="fa fa-eye" aria-hidden="true"></i>
 					</div>
 					
 					<div class="flex-sb-m w-full p-t-3 p-b-24">
 						
 
 						<div>
-							<a href="#" class="txt1" style="color: #086f34" onclick="alert('Please contact administrator!')">
+							<a href="#" class="txt1" style="color: #DD9106; font-size:20px;" onclick="alert('Please contact administrator!')">
 								Forgot?
 							</a>
 						</div>
 						
 						<div>
-							<a href="#" class="txt1" style="color: #086f34" onclick="alert('Please login with username: admin & password: admin for demo.')">
+							<a href="#" class="txt1" style="color: #DD9106; font-size:20px;" onclick="alert('Please login with username: admin & password: admin for demo.')">
 								Demo
 							</a>	
 						</div>
 					</div>
 
 					<div class="container-login100-form-btn m-t-17">
-						<button class="login100-form-btn" style="background-color: #086f34">
+						<button class="login100-form-btn">
 							Login
 						</button>
 					</div>

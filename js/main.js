@@ -6,6 +6,7 @@
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
+    console.log(input);
 
     $('.validate-form').on('submit',function(){
         var check = true;
@@ -51,6 +52,19 @@
 
         $(thisAlert).removeClass('alert-validate');
     }
+
+    
+    //Show Password Button
+    $(".fa-eye").click( () => {
+        
+        if($("#pass")[0].type === "password"){
+            $("#pass")[0].type="text";
+        }
+        else{
+            $("#pass")[0].type="password";
+        }
+
+    });
     
     
 

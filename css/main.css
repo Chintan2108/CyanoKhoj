@@ -21,8 +21,10 @@
 * {
 	margin: 0px; 
 	padding: 0px; 
-	box-sizing: border-box;
+  box-sizing: border-box;
+  color: #f1f2f6;
 }
+
 
 body, html {
 	height: 100%;
@@ -132,12 +134,26 @@ iframe {
 
 .limiter {
   width: 100%;
+  height: 100vh;
   margin: 0 auto;
+  background:#cc3d00 radial-gradient(circle at 60% 100%, #0652DD 5%, #1B1464 94%);
 }
+
+
+/*LOGO*/
+.limiter .logo {
+  height: 10vh;
+  color: #f1f2f6;
+}
+
+.limiter .logo span {
+  color: #ffc451;
+}
+
 
 .container-login100 {
   width: 100%;  
-  min-height: 100vh;
+  height: 90vh;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -146,7 +162,6 @@ iframe {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 15px;
   
   background-position: center;
   background-size: cover;
@@ -156,9 +171,11 @@ iframe {
 
 .wrap-login100 {
   width: 390px;
-  background: #fff;
+  background: transparent;
   border-radius: 10px;
   position: relative;
+  /* border: .1rem solid #ffc451; */
+  padding: 1rem;
 }
 
 
@@ -171,42 +188,62 @@ iframe {
 
 .login100-form-title {
   font-family: Ubuntu-Bold;
-  font-size: 30px;
-  color: #403866;
+  font-size: 35px;
+  color:#f1f2f6;
   line-height: 1.2;
   text-transform: uppercase;
-  text-align: center;
-
-  width: 100%;
+  text-align: left;
+  border-bottom: 3px solid #DD9106;
+  width: max-content;
   display: block;
 }
-
+/* #cc3d00 radial-gradient(circle at 60% 100%, #1B1464 5%, #2f3542 94%) */
 
 
 /*------------------------------------------------------------------
 [ Input ]*/
 
 .wrap-input100 {
+  display: flex;
+  align-items: center;
   width: 100%;
   position: relative;
-  background-color: #e6e6e6;
+  /* background-color: #e6e6e6; */
   border: 1px solid transparent;
   border-radius: 3px;
 }
+
+/*fa-icons*/
+.wrap-input100 .fa{
+  font-size: 30px;
+}
+
+.wrap-input100 .fa-eye{
+  font-size:22px;
+  position: absolute;
+  right: -10px;
+  cursor: pointer;
+}
+
 
 
 /*---------------------------------------------*/
 .input100 {
   font-family: Ubuntu-Bold;
-  color: #403866;
+  color: #f1f2f6;
   line-height: 1.2;
   font-size: 18px;
-
   display: block;
+
   width: 100%;
   background: transparent;
-  height: 62px;
-  padding: 0 20px 0 38px;
+  height: 60px;
+  padding: 0 15px;
+  overflow: hidden;
+}
+
+.input100 ::placeholder{
+  opacity: 1;
 }
 /*------------------------------------------------------------------
 [ Focus Input ]*/
@@ -214,30 +251,31 @@ iframe {
 .focus-input100 {
   position: absolute;
   display: block;
-  width: calc(100% + 2px);
+  width: 90%;
   height: calc(100% + 2px);
-  top: -1px;
-  left: -1px;
+  top: -10px;
+  left: 30px;
   pointer-events: none;
-  border: 1px solid #827ffe;
-  border-radius: 3px;
+  border-bottom: 3px solid #f1f2f6;
+  
 
-  visibility: hidden;
-  opacity: 0;
+  visibility: visible;
+  opacity: 1;
 
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
   transition: all 0.4s;
 
-  -webkit-transform: scaleX(1.1) scaleY(1.3);
-  -moz-transform: scaleX(1.1) scaleY(1.3);
-  -ms-transform: scaleX(1.1) scaleY(1.3);
-  -o-transform: scaleX(1.1) scaleY(1.3);
-  transform: scaleX(1.1) scaleY(1.3);
+  -webkit-transform: scaleX(1.05) scaleY(1.3);
+  -moz-transform: scaleX(1.05) scaleY(1.3);
+  -ms-transform: scaleX(1.05) scaleY(1.3);
+  -o-transform: scaleX(1.05) scaleY(1.3);
+  transform: scaleX(1.05) scaleY(1.3);
 }
 
 .input100:focus + .focus-input100 {
+  border-bottom: 3px solid #DD9106;
   visibility: visible;
   opacity: 1;
 
@@ -296,7 +334,7 @@ iframe {
   width: 18px;
   height: 18px;
   border-radius: 3px;
-  background: #fff;
+  background: #f1f2f6;
   border: 2px solid #827ffe;
   left: 0;
   top: 50%;
@@ -326,8 +364,11 @@ iframe {
 
 .login100-form-btn {
   font-family: Ubuntu-Bold;
-  font-size: 16px;
-  color: #fff;
+  color: #f1f2f6;
+  background-image: linear-gradient(to right, #DD9106 ,#ff5e57,#DD9106);
+  background-size: 200% auto;
+  border-radius: 25px;
+  font-size: 20px;
   line-height: 1.2;
   text-transform: uppercase;
 
@@ -341,8 +382,7 @@ iframe {
   padding: 0 20px;
   width: 100%;
   height: 62px;
-  background-color: #827ffe;
-  border-radius: 3px;
+  
 
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
@@ -351,7 +391,8 @@ iframe {
 }
 
 .login100-form-btn:hover {
-  background-color: #403866;
+  background-position: right center; 
+  box-shadow: 0 0 3px 1px #000;
 }
 
 
