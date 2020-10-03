@@ -147,7 +147,7 @@ else {
         <div class="col-xl-2 col-md-4 col-6 ">
           <div class="icon-box">
             <i class="fab fa-google"></i>
-            <h3 style=color:#ffc451;"">GEE</h3>
+            <h3 style="color:#ffc451;">GEE</h3>
           </div>
         </div>
         <div class="col-xl-2 col-md-4 col-6 mt-4 mt-md-0">
@@ -166,7 +166,8 @@ else {
 
     </div>
   </section><!-- End Hero -->
-  
+
+
   <main id="main">
 
     <!-- ======= Location Fetcher Section ======= -->
@@ -219,7 +220,7 @@ else {
             <p class="font-italic">
               This shows city/province/state of the tweet.
             </p>
-            <ul class="list-unstyled card-columns">
+            <ul class="list-unstyled card-columns" style="column-count: 2;">
               <?php
               $loc = []; 
               foreach ($arr as $key => $value) {
