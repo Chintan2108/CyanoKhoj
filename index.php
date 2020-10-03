@@ -167,6 +167,11 @@ else {
     </div>
   </section><!-- End Hero -->
 
+  <!-- Welcome Tooltip -->
+  <div id="welcome-tooltip">
+      Welcome Admin! <!--Username goes here -->
+  </div>
+  <!-- End of ToolTip -->
 
   <main id="main">
 

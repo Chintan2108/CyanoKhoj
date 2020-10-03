@@ -12,6 +12,9 @@
     if ($('#preloader').length) {
       $('#preloader').delay(100).fadeOut('slow', function() {
         $(this).remove();
+
+        //Show Tooltip Message as, preloader ends..
+        $("#welcome-tooltip").addClass('tooltip-animate');
       });
     }
   });
