@@ -21,7 +21,7 @@ else {
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>CyanoKhoj - Home</title>
-  <script src="http://maps.google.com/maps/api/js?key=AIzaSyD6o1aJi4G89tuJzF9JFa1eV_dAwt7hsmU" type="text/javascript"></script>
+  <script src="http://maps.google.com/maps/api/js?key=enter_api_key_here" type="text/javascript"></script>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
@@ -104,7 +104,7 @@ else {
     </div>
     <!-- MENU -->
     <div class="nav-username">
-      <h2> Welcome Admin!</h2>
+      <h2> Welcome <?php echo($_SESSION['uname'])?>!</h2>
     </div>
     <div class="Menu-Button">
       <i class="fa fa-bars text-white" id="toggle-menu-btn" aria-hidden="true"></i>
@@ -126,7 +126,7 @@ else {
         <!-- Menu Body -->
         <div class="menu-body">
             <div class="menu-username">
-              <h2>Welcome Admin!</h2>
+              <h2>Welcome <?php echo($_SESSION['uname'])?>!</h2>
             </div>
             <ul class="list-unstyled">
               <li>
@@ -203,7 +203,7 @@ else {
 
   <!-- Welcome Tooltip -->
   <div id="welcome-tooltip">
-      Welcome Admin! <!--Username goes here -->
+      Welcome <?php echo($_SESSION['uname'])?>! <!--Username goes here -->
   </div>
   <!-- End of ToolTip -->
 
@@ -304,7 +304,7 @@ else {
                 $i++;
               }
               ?>
-            </div>
+            </ul>
           </div>
         </div>
 
