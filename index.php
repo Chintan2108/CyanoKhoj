@@ -104,7 +104,7 @@ else {
     </div>
     <!-- MENU -->
     <div class="nav-username">
-      <h2> Welcome Admin!</h2>
+      <h2> Welcome <?php echo($_SESSION['uname'])?>!</h2>
     </div>
     <div class="Menu-Button">
       <i class="fa fa-bars text-white" id="toggle-menu-btn" aria-hidden="true"></i>
@@ -126,7 +126,7 @@ else {
         <!-- Menu Body -->
         <div class="menu-body">
             <div class="menu-username">
-              <h2>Welcome Admin!</h2>
+              <h2>Welcome <?php echo($_SESSION['uname'])?>!</h2>
             </div>
             <ul class="list-unstyled">
               <li>
