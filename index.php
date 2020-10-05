@@ -98,27 +98,61 @@ else {
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <h1 class="logo"><a href="index.php">CyanoKhoj<span>.</span></a></h1>
-
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li><h2 style="color: #fbfbfb"><?php echo date("l jS \of F")?></h2></li>
-          <li><p></p></li>
-          <li><p></p></li>
-          <li><p></p></li>
-          <li><p></p></li>
-          <li><h2 style="color: #fbfbfb">Welcome <?php echo $_SESSION['uname']; ?>!</h2></li>
-          <li><p></p></li>
-        </ul>
-      </nav><!-- .nav-menu -->
-
-      <a href="logout.php" class="get-started-btn scrollto">LOGOUT</a>
-
+<div id="header" class="fixed-top navbar">
+    <div class="logo">
+      <a href="index.php">CyanoKhoj<span>.</span></a></h1>
     </div>
-  </header><!-- End Header -->
+    <!-- MENU -->
+    <div class="nav-username">
+      <h2> Welcome <?php echo($_SESSION['uname'])?>!</h2>
+    </div>
+    <div class="Menu-Button">
+      <i class="fa fa-bars text-white" id="toggle-menu-btn" aria-hidden="true"></i>
+    </div>
+      
+    <!-- Dropdown Menu -->
+    <div class="Dropdown-Menu">
+        <!-- Menu Heading -->
+        <div class="menu-heading">
+            <h2 class="date"> 
+              <?php echo date("l jS \of F")?> 
+            </h2>  
+            <span class="menu-close-btn"> 
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </span>
+        </div>
+        <!-- Menu Heading -->
+
+        <!-- Menu Body -->
+        <div class="menu-body">
+            <div class="menu-username">
+              <h2>Welcome <?php echo($_SESSION['uname'])?>!</h2>
+            </div>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#footer">About</a>
+              </li>
+              <li>
+                <a href="#">Your Profile</a>
+              </li>
+              <li>
+                <a href="#cta">Get Tweet Locations</a>
+              </li>
+              <li id="logout-btn">
+                <a href="logout.php" class="get-started-btn scrollto"><i class="fa fa-sign-out mr-3" aria-hidden="true"></i>Logout</a>
+              </li>
+            </ul>
+        </div>
+        <!-- Menu Body-->
+
+        <div class="menu-footer">
+          <button type="button" class="btn menu-close-btn" data-toggle="button" aria-pressed="false" autocomplete="off">Close</button>
+        </div>
+    </div>
+    <!-- DropDown Menu-->  
+</div>
+<!-- Navbar end -->
+  
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center justify-content-center">
@@ -167,6 +201,11 @@ else {
     </div>
   </section><!-- End Hero -->
 
+  <!-- Welcome Tooltip -->
+  <div id="welcome-tooltip">
+      Welcome <?php echo($_SESSION['uname'])?>! <!--Username goes here -->
+  </div>
+  <!-- End of ToolTip -->
 
   <main id="main">
 
@@ -217,10 +256,10 @@ else {
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
             <h3>Suspected Locations as tweeted by Citizens:</h3>
-            <p class="font-italic">
+            <p class="font-italic" style="font-size:2.2rem">
               This shows city/province/state of the tweet.
             </p>
-            <ul class="list-unstyled card-columns" style="column-count: 2;">
+            <ul id="location-list-inner" class="list-unstyled card-columns" style="column-count: 2;">
               <?php
               $loc = []; 
               foreach ($arr as $key => $value) {
@@ -229,11 +268,11 @@ else {
               }
               foreach (array_unique($loc) as $key => $value) {
                 # code...
-                echo '<li><i class="fas fa-map-marker-alt"></i>' . $value . '</li>';
+                echo '<li style="font-size:1.9rem"><i class="fas fa-map-marker-alt"></i>' . $value . '</li>';
               }
               ?>
             </ul>
-            <p>
+            <p style="font-size:2rem">
               These locations have been interpolated to the nearest round coordinates available, hence they are accurate till province. Please check for water bodies around the same areas when analyzing in GEE.
             </p>
           </div>
@@ -256,12 +295,12 @@ else {
           <div class="col-lg-6 pt-4 pt-lg-0 order-1 order-lg-2 content" data-aos="fade-left" data-aos-delay="100">
             <h3>Link to all tweets pertaining to CyanoHABs dating till a week back</h3>
             <br>
-            <ul class="list-unstyled card-columns">
+            <ul id="tweet-list-inner" class="list-unstyled card-columns">
               <?php
               $i = 1;
               foreach ($arr as $key => $value) {
                 # code...
-                echo '<li><a style="color: #007bff;" href="' . $value[3] . '" target="_blank"><i class="fab fa-twitter-square" style="color: #007bff;"></i> Tweet ' . $i . '</a></li>';
+                echo '<li><a style="color: #007bff; font-size:1.9rem" href="' . $value[3] . '" target="_blank"><i class="fab fa-twitter-square" style="color: #007bff;"></i> Tweet ' . $i . '</a></li>';
                 $i++;
               }
               ?>
@@ -356,7 +395,7 @@ else {
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+  <a href="#header" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
