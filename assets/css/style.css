@@ -501,7 +501,7 @@ section {
   --------------------------------------------------------------*/
 .about .content h3 {
   font-weight: 700;
-  font-size: 2.8rem;
+  font-size: 28px;
   font-family: "Poppins", sans-serif;
 }
 
@@ -511,53 +511,20 @@ section {
 }
 
 .about .content ul li {
-  padding: 0 0 .8rem 2.6rem;
+  padding: 0 0 8px 26px;
   position: relative;
 }
 
 .about .content ul i {
   position: absolute;
-  font-size: 2.0rem;
+  font-size: 20px;
   left: 0;
-  top: -.3rem;
+  top: -3px;
   color: #ffc451;
 }
 
 .about .content p:last-child {
   margin-bottom: 0;
-}
-
-/*Location List*/
-.about .content #location-list-inner {
-  -webkit-column-count: 2;
-          column-count: 2;
-}
-
-/*Tweet List*/
-.about .content #tweet-list-inner {
-  -webkit-column-count: 3;
-          column-count: 3;
-  padding: 1rem .5rem;
-  -webkit-column-fill: balance;
-          column-fill: balance;
-}
-
-@media (max-width: 768px) {
-  #tweet-list-inner {
-    -webkit-column-count: 2;
-            column-count: 2;
-  }
-}
-
-@media (max-width: 600px) {
-  #tweet-list-inner {
-    -webkit-column-count: 1;
-            column-count: 1;
-  }
-  #location-list-inner {
-    -webkit-column-count: 1;
-            column-count: 1;
-  }
 }
 
 /*--------------------------------------------------------------
