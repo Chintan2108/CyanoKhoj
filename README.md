@@ -45,6 +45,7 @@ This webapp has been deployed on GCP in the Apache server. Technicalities includ
 
 ## Contribution
 
+Join this project channel:
 [![Gitter](https://badges.gitter.im/CyanoKhoj/community.svg)](https://gitter.im/CyanoKhoj/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Please feel free to raise issues and fix any existing ones. Further details can be found in our [code of conduct](https://github.com/Chintan2108/CyanoKhoj/blob/master/CODE_OF_CONDUCT.md).
