@@ -1,4 +1,8 @@
+
 # CyanoKhoj *|* [![Gitter](https://badges.gitter.im/CyanoKhoj/community.svg)](https://gitter.im/CyanoKhoj/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+
+
 
 ## Affiliations
 #### 1. Centre of Geospatial Research, Department of Geography, University of Georgia, Athens (GA)
@@ -44,6 +48,7 @@ The suspected locations are then analyzed using the Sentinel-3 satellite data to
 This webapp has been deployed on GCP in the Apache server. Technicalities include in-house python function calls from PHP core environment, managing API requests and maintaining the deployment with timely feature updates.
 
 ## Contribution
+
 
 Join the project channel here: <br>
 [![Gitter](https://badges.gitter.im/CyanoKhoj/community.svg)](https://gitter.im/CyanoKhoj/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
