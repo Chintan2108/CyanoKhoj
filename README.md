@@ -25,7 +25,7 @@ CyanoKhoj is a web-app which employs the citizen science program by tracking the
 * PHP
 * Javascript Core
 * Frontend, backend, UI/UX
-* GCP Deployment
+* GCP for Deployment
 
 ### Tweet Analysis and Location Extraction
 
