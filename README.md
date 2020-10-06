@@ -1,4 +1,8 @@
-# CyanoKhoj  |  [![Gitter](https://badges.gitter.im/CyanoKhoj/community.svg)](https://gitter.im/CyanoKhoj/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+# CyanoKhoj *|* [![Gitter](https://badges.gitter.im/CyanoKhoj/community.svg)](https://gitter.im/CyanoKhoj/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+
+
 
 ## Affiliations
 #### 1. Centre of Geospatial Research, Department of Geography, University of Georgia, Athens (GA)
@@ -45,7 +49,8 @@ This webapp has been deployed on GCP in the Apache server. Technicalities includ
 
 ## Contribution
 
-Join this project channel:
+
+Join the project channel here: <br>
 [![Gitter](https://badges.gitter.im/CyanoKhoj/community.svg)](https://gitter.im/CyanoKhoj/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 Please feel free to raise issues and fix any existing ones. 
