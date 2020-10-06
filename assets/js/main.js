@@ -19,17 +19,29 @@
     }
   });
 
-   
-
+  
+  /*DropDown Menu*/
+  
    //Menu Button Clicked
    $(".Menu-Button #toggle-menu-btn").click( () =>{
-      $(".Dropdown-Menu").fadeIn();
-  });
+       $(".Dropdown-Menu").slideDown("slow");
+   });
 
   //Menu Close Button
   $(".menu-close-btn").click( () =>{
-      $(".Dropdown-Menu").fadeOut();
+    $(".Dropdown-Menu").slideUp("fast");
   });
+
+//Hide Menu if clicked outside
+  const $menu = $('.Dropdown-Menu');
+$(document).mouseup(e => {
+   if (!$menu.is(e.target) // if the target of the click isn't the container...
+   && $menu.has(e.target).length === 0) // ... nor a descendant of the container
+   {
+     $('.Dropdown-Menu').slideUp("fast");
+  }
+ });
+
 
 
   // Smooth scroll for the navigation menu and links with .scrollto classes
