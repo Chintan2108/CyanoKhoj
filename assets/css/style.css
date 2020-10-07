@@ -510,6 +510,7 @@ section {
 
 .about .content #location-list-inner i {
   color: #ffc451;
+  margin-right: .8rem;
 }
 
 .about .content p:last-child {
@@ -541,7 +542,7 @@ section {
   .about .content #tweet-list-inner {
     -webkit-column-count: 2;
             column-count: 2;
-    text-align: center;
+    text-align: justify;
   }
 }
 
