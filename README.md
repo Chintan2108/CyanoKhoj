@@ -39,7 +39,7 @@ The following repositories contain detailed workflow and information the tweet a
 
 The suspected locations are then analyzed using the Sentinel-3 satellite data to determine whether the flagged waterbodies are suffering from an algal bloom. Various image processing techniques and indices are implemented to quantify the data indications in each pixel of the image.
 
-### Deployment
+### Deoplyment
 
 This webapp has been deployed on GCP in the Apache server. Technicalities include in-house python function calls from PHP core environment, managing API requests and maintaining the deployment with timely feature updates.
 
