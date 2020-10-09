@@ -1,12 +1,10 @@
 
 (function ($) {
     "use strict";
-
-
+	
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
-    console.log(input);
 
     $('.validate-form').on('submit',function(){
         var check = true;
@@ -64,6 +62,10 @@
             $("#pass")[0].type="password";
         }
 
+    });
+
+    $(document).mousedown(function () { 
+        console.log("Mouse clicked");
     });
     
     
