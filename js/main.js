@@ -1,12 +1,10 @@
 
 (function ($) {
     "use strict";
-
-
+	
     /*==================================================================
     [ Validate ]*/
     var input = $('.validate-input .input100');
-    console.log(input);
 
     $('.validate-form').on('submit',function(){
         var check = true;
@@ -65,7 +63,5 @@
         }
 
     });
-    
-    
 
 })(jQuery);

@@ -3,8 +3,8 @@
 session_start();
 
 if(isset($_SESSION['uname'])) {
-	session_destroy();
-	echo "<script> alert('" . $_SESSION['uname'] . " logged out succesfully!') </script>";
+	$_SESSION['loggedOut']=true;
+	$_SESSION['message']=$_SESSION['uname']." Logged Out succesfully!";
 	echo "<script> location.href='login.php' </script>";
 }
 else {
