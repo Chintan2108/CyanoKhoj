@@ -1,4 +1,3 @@
-
 (function ($) {
     "use strict";
 	
@@ -53,12 +52,15 @@
 
     
     //Show Password Button
-    $(".fa-eye").click( () => {
-        
+    $("#password-toggle").click( () => {
+        let icon=document.querySelector("#password-toggle");
         if($("#pass")[0].type === "password"){
+
+           icon.classList.replace("fa-eye","fa-eye-slash");
             $("#pass")[0].type="text";
         }
         else{
+           icon.classList.replace("fa-eye-slash","fa-eye");
             $("#pass")[0].type="password";
         }
 
