@@ -123,6 +123,12 @@ label {
   margin: 0;
 }
 
+/*Remove Default Show Password Button*/
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
 /*---------------------------------------------*/
 button {
   outline: none !important;
