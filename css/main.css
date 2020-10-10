@@ -22,10 +22,12 @@
 
 html{
   font-size: 62.5%; /*1rem=10px*/
+  font-family: Ubuntu-Regular, sans-serif;
 }
 
-body, html {
+body{
   height: 100%;
+  background: radial-gradient(circle at 60% 100%, #0652DD 5%, #1B1464 94%);
   font-family: Ubuntu-Regular, sans-serif;
 }
 
@@ -151,14 +153,16 @@ iframe {
   width: 100%;
   height: 100vh;
   margin: 0 auto;
-  background: #cc3d00 radial-gradient(circle at 60% 100%, #0652DD 5%, #1B1464 94%);
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at 60% 100%, #0652DD 5%, #1B1464 94%);
 }
 
 /*LOGO*/
 .limiter .logo {
-  height: 10vh;
+  height: 25vh;
   color: #f1f2f6;
-  font-size: 4rem;
+  font-size: 4.2rem;
 }
 
 .limiter .logo span {
@@ -167,18 +171,18 @@ iframe {
 
 .container-login100 {
   width: 100%;
-  height: 90vh;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -201,7 +205,7 @@ iframe {
 
 .login100-form-title {
   font-family: Ubuntu-Bold;
-  font-size: 3.8rem;
+  font-size: 3.5rem;
   color: #f1f2f6;
   line-height: 1.2;
   text-transform: uppercase;
@@ -247,7 +251,7 @@ iframe {
   font-family: Ubuntu-Bold;
   color: #f1f2f6;
   line-height: 1.2;
-  font-size: 2.2rem;
+  font-size: 2.1rem;
   display: block;
   width: 100%;
   background: transparent;
@@ -364,7 +368,7 @@ iframe {
       flex-wrap: wrap;
 }
 
-.login100-form-btn {
+.login100-form-btn,.register-btn {
   font-family: Ubuntu-Bold;
   color: #f1f2f6;
   background-image: -webkit-gradient(linear, left top, right top, from(#DD9106), color-stop(#ff5e57), to(#DD9106));
@@ -389,12 +393,25 @@ iframe {
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
-
 .login100-form-btn:hover {
   background-position: right center;
   -webkit-box-shadow: 0 0 .3rem .1rem #000;
           box-shadow: 0 0 .3rem .1rem #000;
 }
+
+.register-btn{
+  background: transparent;
+  border: .2rem solid #ff5e57;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.register-btn:hover{
+  /* transform: scale(1.1);  */
+  border: .2rem solid whitesmoke;
+}
+
+
 
 /*------------------------------------------------------------------
   [ Alert validate ]*/
@@ -450,6 +467,28 @@ iframe {
     opacity: 1;
   }
 }
+
+/*Toast Message*/
+
+.toast-container{
+  position:absolute;
+  height:100%;
+  width:100%;
+  top:0%;
+  left:0%;
+  display:none;
+  background: rgba(0,0,0,0.6);
+}
+
+#toast{
+  position:absolute; 
+  width: 35rem;
+  top:50%;
+  left:50%;
+  font-size: 2.2rem;
+  transform: translate(-50%, -50%);
+}
+
 
   /*Responsive Media Queries*/
   @media(max-width: 998px)

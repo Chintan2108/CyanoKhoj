@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +33,8 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
 
 </head>
 <body>
@@ -54,42 +60,65 @@
 					</div>
 					
 					
-					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+					<div class="wrap-input100 validate-input mb-3" data-validate = "Password is required">
 						<i class="fa fa-lock" aria-hidden="true"></i>
 						<input class="input100" type="password" name="pass" id="pass" placeholder="Password">
 						<span class="focus-input100"></span>
 						<i class="fa fa-eye" aria-hidden="true"></i>
 					</div>
 					
-					<div class="flex-sb-m w-full p-t-3 p-b-24">
+					<div class="flex-sb-m w-full pt-3 pb-4">
 						
 
 						<div>
-							<a href="#" class="txt1" style="color: #DD9106; font-size:20px;" onclick="alert('Please contact administrator!')">
+							<a href="#" class="txt1" style="color: #DD9106; font-size:2rem;" onclick="alert('Please contact administrator!')">
 								Forgot?
 							</a>
 						</div>
 						
 						<div>
-							<a href="#" class="txt1" style="color: #DD9106; font-size:20px;" onclick="alert('Please login with username: admin & password: admin for demo.')">
+							<a href="#" class="txt1" style="color: #DD9106; font-size:2rem;" onclick="alert('Please login with username: admin & password: admin for demo.')">
 								Demo
 							</a>	
 						</div>
 					</div>
 
-					<div class="container-login100-form-btn m-t-17">
+					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
 							Login
 						</button>
+					</div>
+					
+					<div class="register-container w-100 mt-4">
+						<button class="register-btn" onclick="window.location.href='signup.php';">
+							Register
+						</button>
+						<h2 class="text-center my-3">New Here? Register </h2>
 					</div>
 
 				</form>
 			</div>
 		</div>
 	</div>
-	
+	<!-- LIMITER END -->
 
-	<div id="dropDownSelect1"></div>
+
+	<!-- TOAST CONTAINER -->
+	<div class="toast-container">
+		<div class="toast" data-autohide="false" id="toast">
+			<div class="toast-header">
+				<strong class="mr-auto text-black">CyanoKhoj.</strong>
+				<button type="button" id="toast-close" class="ml-2 mb-1 close" data-dismiss="toast" style="font-size:3rem;">&times;</button>
+			</div>
+			<div class="toast-body text-black text-capitalize" style="font-weight: 600;background: #DD9106;">
+				<?php if(isset($_SESSION['message']))
+					echo($_SESSION['message']); ?>
+			</div>
+		</div>
+	</div>
+	<!-- END OF TOAST CONTAINER -->
+
+	
 
 
   <!-- Template Main JS File -->
@@ -110,7 +139,51 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+<!--===============================================================================================-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+ 
+<!-- TOAST MESSAGE SCRIPT	 -->
+<script>
+
+	$(document).ready(function(){
+		<?php  
+			//Display Toast only if Session['message'] is set
+			if(isset($_SESSION['message'])) 
+			{	
+				echo("$('.toast-container').fadeIn();$('.toast').toast('show');");  
+				unset($_SESSION['message']);
+				
+				//Destroy Session after Displaying 'Log out' Message
+				if(isset($_SESSION['loggedOut']))
+				{
+					if($_SESSION['loggedOut'] === true)
+						session_destroy();
+				}
+			}
+		?>
+	});
+
 	
+	$toast=$(".toast");
+	//Hide Toast & Toast Container if clicked outside of Toast
+	$(document).mouseup(event => {
+		if (!$toast.is(event.target) && $toast.has(event.target).length === 0) 
+		{
+			$('.toast').toast('hide');
+			$('.toast-container').fadeOut();
+			$("#uname").focus();
+		}
+	});
+
+	//Toast Close Button: Hide Toast & Container
+	$("#toast-close").click( () =>{			
+			$('.toast').toast('hide');
+			$('.toast-container').fadeOut();
+			$("#uname").focus();
+			
+        });
+</script>  
 
 </body>
 </html>

@@ -15,12 +15,12 @@ if (array_key_exists($uname, $users))
 		echo "<script> location.href='index.php' </script>";
 	}
 	else {
-		echo "<script> alert('Username and password combination mismatch!') </script>";
+		$_SESSION['message']='Username and password combination mismatch!';
 		echo "<script> location.href='login.php' </script>";
 	}
 }
 else {
-	echo "<script> alert('User does not exist!') </script>";
+	$_SESSION['message']='User does not exist!';
 	echo "<script> location.href='login.php' </script>";
 }
 ?>
