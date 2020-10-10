@@ -3,7 +3,6 @@ session_start();
 
 if (isset($_SESSION['uname']) == FALSE) {
   echo "<script> location.href='login.php' </script>";
-  $_SESSION['message']="Please Log in!";
 }
 else {
 
