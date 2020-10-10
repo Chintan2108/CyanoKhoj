@@ -63,7 +63,7 @@ session_start();
 						<i class="fa fa-lock" aria-hidden="true"></i>
 						<input class="input100" type="password" name="pass" id="pass" placeholder="Password">
 						<span class="focus-input100"></span>
-						<i class="fa fa-eye" aria-hidden="true"></i>
+						<i class="fa fa-eye" id="password-toggle" aria-hidden="true"></i>
 					</div>
 					
 					<div class="flex-sb-m w-full pt-3 pb-4">
@@ -89,7 +89,7 @@ session_start();
 					</div>
 					
 					<div class="register-container w-100 mt-4">
-						<button class="register-btn" onclick="window.location.href='signup.php';">
+						<button class="register-btn" onclick="window.location.href='login.php';">
 							Register
 						</button>
 						<h2 class="text-center my-3">New Here? Register </h2>
