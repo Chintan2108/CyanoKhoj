@@ -27,7 +27,7 @@ def fetchTweets(info=False):
     tweets_data = {'id':[], 'text':[], 'place':[], 'time':[], 'url':[]}
 
     for tweet in Cursor(api.search, 
-                         q = 'BlueGreenAlgae OR CyanoBacteria OR cyanotracker OR anabaena OR microcystis OR cyanotoxins OR toxic algae OR algae bloom OR algal bloom OR #CyanoBacteria OR #AlgaeBloom OR #CitSci OR #CyanoBacteriaBlooms',
+                         q = 'BlueGreenAlgae OR CyanoBacteria OR cyanotracker OR anabaena OR microcystis OR cyanotoxins OR toxic algae OR algae bloom OR algal bloom OR #CyanoBacteria OR #AlgaeBloom OR #CyanoBacteriaBlooms OR #CyanoHABs OR #HABs',
                          count = 20,
                          result_type = 'recent',
                          include_entities = True,
