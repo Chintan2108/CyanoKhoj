@@ -33,8 +33,7 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
 </head>
 <body>
@@ -142,37 +141,39 @@ session_start();
 <!--===============================================================================================-->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
- 
+
 <!-- TOAST MESSAGE SCRIPT	 -->
 <script>
-
-	$(document).ready(function(){
-		<?php  
-			//Display Toast only if Session['message'] is set
-			if(isset($_SESSION['message'])) 
-			{	
-				echo("$('.toast-container').fadeIn();$('.toast').toast('show');");  
-				unset($_SESSION['message']);
-				
-				//Destroy Session after Displaying 'Log out' Message
-				if(isset($_SESSION['loggedOut']))
-				{
-					if($_SESSION['loggedOut'] === true)
-						session_destroy();
-				}
+$(document).ready(function(){
+	<?php  
+		//Display Toast only if Session['message'] is set
+		if(isset($_SESSION['message'])) 
+		{	
+			echo("$('.toast-container').fadeIn();$('.toast').toast('show');");  
+			unset($_SESSION['message']);
+			
+			//Destroy Session after Displaying 'Log out' Message
+			if(isset($_SESSION['loggedOut']))
+			{
+				if($_SESSION['loggedOut'] === true)
+					session_destroy();
 			}
-		?>
-	});
+		}
+	?>
 
-	
 	$toast=$(".toast");
+	$inputField= $("#uname");
 	//Hide Toast & Toast Container if clicked outside of Toast
 	$(document).mouseup(event => {
-		if (!$toast.is(event.target) && $toast.has(event.target).length === 0) 
+		//Only if toast is being displayed
+		if($toast.hasClass("show"))
 		{
-			$('.toast').toast('hide');
-			$('.toast-container').fadeOut();
-			$("#uname").focus();
+			if (!$toast.is(event.target) && $toast.has(event.target).length === 0) 
+			{
+				$('.toast').toast('hide');
+				$('.toast-container').fadeOut();				
+			}
+			$inputField.focus();
 		}
 	});
 
@@ -180,10 +181,10 @@ session_start();
 	$("#toast-close").click( () =>{			
 			$('.toast').toast('hide');
 			$('.toast-container').fadeOut();
-			$("#uname").focus();
-			
-        });
+		});
+});
 </script>  
+
 
 </body>
 </html>
