@@ -53,36 +53,36 @@ session_start();
 
                     <div class="input-container">
                         <input type="text" name="fullname" id="fullname"  required>
-                        <label for="name"> Full Name </label>
+                        <label for="name"> Full Name<span class="required">*</span> </label>
                     </div>
 
                     <div class="input-container">
                         <input type="email" name="email" id="email" required>
-                        <label for="email"> Email </label>
+                        <label for="email"> Email<span class="required">*</span> </label>
                     </div>
 
                     <div class="input-container">
                         <input type="date" name="dob" id="dob" min="01/01/1930"  required>
-                        <label for="dob"> Date of Birth </label>
+                        <label for="dob"> Date of Birth<span class="required">*</span> </label>
                     </div>
 
                     <div class="input-container">
                         <input type="text" name="org" id="org" required>
-                        <label for="org"> Organisation Name</label>
+                        <label for="org"> Organisation Name<span class="required">*</span></label>
                     </div>
 
                     <div class="input-container d-inline-block">
                         <input type="text" name="city" style="width: 16rem;overflow:hidden" id="city"  required>
-                        <label for="city"> City </label>
+                        <label for="city"> City<span class="required">*</span> </label>
                     </div>
 
                     <div class="input-container d-inline-block ml-4">
                         <input type="text" name="state" style="width: 18rem;overflow:hidden" id="state" required>
-                        <label for="state"> State </label>
+                        <label for="state"> State<span class="required">*</span> </label>
                     </div>
 
                     <div class="input-container">
-                        <p style="font-size: 2.2rem;letter-spacing:.15rem;"> Organisation Type: </p>    
+                        <p style="font-size: 2.2rem;letter-spacing:.15rem;"> Organisation Type<span class="required">*</span>: </p>    
                         &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" required name="org_type" value="Government" class="name_field" > 
                             <span class="org_type ml-2"> Government </span> <br/>
                         &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" required name="org_type" value="Private" class="name_field" > 
@@ -90,10 +90,15 @@ session_start();
                     </div>
 
                     <div class="input-container">
-                        <input type="number" name="contact_no" id="contact_no" placeholder="Mobile Number" >
+                        <input type="text" name="contact_no" id="contact_no" placeholder="Mobile Number" 
+                            pattern="[0-9]{3}" title="Only Digits Allowed">
                         <label for="mobile_no"> Contact No </label>
                     </div>
 
+                    <div class="message-box text-warning" style="width: 36rem;">
+                        Currently CyanoKhoj is operating only in India. So currently options for state and city are 
+                        available for India Only.
+                    </div>
                     <input type="submit" name="register-btn" id="submit-form" value="Register" class="btn">
 
                 </form>

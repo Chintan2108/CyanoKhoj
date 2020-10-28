@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 @font-face {
@@ -91,6 +92,9 @@ body {
 .parent-container .main-container .form-container .input-container {
   position: relative;
   margin-bottom: 3.2rem;
+  /* input::-webkit-​input-placeholder{  
+                                    color: transparent;
+                                } */
 }
 
 .parent-container .main-container .form-container .input-container label {
@@ -142,31 +146,31 @@ body {
   color: #ffd32a !important;
 }
 
-.parent-container .main-container .form-container .input-container input[type=number]:placeholder-shown + label {
+.parent-container .main-container .form-container .input-container #contact_no:placeholder-shown + label {
   top: .8rem;
   left: .5rem;
   letter-spacing: 0rem;
 }
 
-.parent-container .main-container .form-container .input-container input[type=number]:not(:placeholder-shown) + label, .parent-container .main-container .form-container .input-container input[type=number]:focus + label {
+.parent-container .main-container .form-container .input-container #contact_no:not(:placeholder-shown) + label, .parent-container .main-container .form-container .input-container #contact_no:focus + label {
   top: -2.5rem;
   left: 0rem;
   letter-spacing: 0rem;
 }
 
-.parent-container .main-container .form-container .input-container input[type=number]::-webkit-input-placeholder {
+.parent-container .main-container .form-container .input-container #contact_no::-webkit-input-placeholder {
   opacity: 0;
 }
 
-.parent-container .main-container .form-container .input-container input[type=number]:-ms-input-placeholder {
+.parent-container .main-container .form-container .input-container #contact_no:-ms-input-placeholder {
   opacity: 0;
 }
 
-.parent-container .main-container .form-container .input-container input[type=number]::-ms-input-placeholder {
+.parent-container .main-container .form-container .input-container #contact_no::-ms-input-placeholder {
   opacity: 0;
 }
 
-.parent-container .main-container .form-container .input-container input[type=number]::placeholder {
+.parent-container .main-container .form-container .input-container #contact_no::placeholder {
   opacity: 0;
 }
 

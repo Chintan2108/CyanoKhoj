@@ -109,7 +109,9 @@ if(isset($_GET['activation_code']))
 	  <form  action="add-password.php" method="post" class="needs-validation mt-4" novalidate >
 		<div class="form-group">
 			<label for="pwd">Password:</label>
-			<input type="password" class="form-control" id="pwd" placeholder="Enter Password" name="pwd" minlength="5" required>
+			<input type="password" class="form-control" id="pwd" placeholder="Enter Password" name="pwd" minlength="5" 
+			pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 6 or more characters" required>
 			<i class="fa fa-eye password-toggle" aria-hidden="true"></i>
 			<div class="invalid-feedback pwd-1-validation"> </div>
 			<div class="pwd-1-feeback text-warning my-3"></div>
@@ -174,9 +176,10 @@ if(isset($_GET['activation_code']))
 		// Password Field Validation
 		if($("#pwd").val().length>0)
 		{
-			if($("#pwd").val().length <5)
-			{
-				$(".pwd-1-validation").html("Password should have altleat 5 characters");
+			var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+			if(!($("#pwd").val().match(passw))) 
+			{ 
+				$(".pwd-1-validation").html("Must contain at least one  number and one uppercase <br/> and lowercase letter, and at least 6 or more characters");
 				$(".pwd-1-feeback").html("");
 			}
 		}
@@ -223,10 +226,17 @@ if(isset($_GET['activation_code']))
   $("#pwd").keyup(function(){
 	$("form").removeClass('was-validated');
 
-	if($(this).val().length>1 && $(this).val().length<5)
-	  	$(".pwd-1-feeback").html("Password should have altleat 5 characters");
-	else
+	if($(this).val().length>1)
+	{
+	var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+		if(!($("#pwd").val().match(passw))) 
+		{ 
+			$(".pwd-1-feeback").html("Must contain at least one  number and one uppercase <br/> and lowercase letter, and at least 6 or more characters");
+		}
+		else
 		$(".pwd-1-feeback").html("");
+	}  	
+	
 	  
 	
 	if($("#re-pwd").val().length>1)
