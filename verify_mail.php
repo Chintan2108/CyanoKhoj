@@ -109,9 +109,9 @@ if(isset($_POST['activation_code']))
 	  <form  action="add-password.php" method="post" class="needs-validation mt-4" novalidate >
 		<div class="form-group">
 			<label for="pwd">Password:</label>
-			<input type="password" class="form-control" id="pwd" placeholder="Enter Password" name="pwd" minlength="5" 
-			pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 6 or more characters" required>
+			<input type="password" class="form-control" id="pwd" placeholder="Enter Password" name="pwd"
+			pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+  title="Must contain at least one  number and one uppercase and lowercase letter and special character, and at least 8 or more characters" required>
 			<i class="fa fa-eye password-toggle" aria-hidden="true"></i>
 			<div class="invalid-feedback pwd-1-validation"> </div>
 			<div class="pwd-1-feeback text-warning my-3"></div>
@@ -176,10 +176,10 @@ if(isset($_POST['activation_code']))
 		// Password Field Validation
 		if($("#pwd").val().length>0)
 		{
-			var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+			var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
 			if(!($("#pwd").val().match(passw))) 
 			{ 
-				$(".pwd-1-validation").html("Must contain at least one  number and one uppercase <br/> and lowercase letter, and at least 6 or more characters");
+				$(".pwd-1-validation").html("Must contain at least one number, one uppercase and lowercase letter <br/>and a special character , and at least 8 or more characters");
 				$(".pwd-1-feeback").html("");
 			}
 		}
@@ -228,10 +228,10 @@ if(isset($_POST['activation_code']))
 
 	if($(this).val().length>1)
 	{
-	var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+		var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
 		if(!($("#pwd").val().match(passw))) 
 		{ 
-			$(".pwd-1-feeback").html("Must contain at least one  number and one uppercase <br/> and lowercase letter, and at least 6 or more characters");
+			$(".pwd-1-feeback").html("Must contain at least one number, one uppercase and lowercase letter <br/>and a special character , and at least 8 or more characters");
 		}
 		else
 		$(".pwd-1-feeback").html("");

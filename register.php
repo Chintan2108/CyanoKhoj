@@ -1,5 +1,5 @@
 <?php
-require_once("db-connection.php");
+// require_once("db-connection.php");
 require_once("external-links.php");
 session_start();
 
@@ -95,9 +95,9 @@ session_start();
                         <label for="mobile_no"> Contact No </label>
                     </div>
 
-                    <div class="message-box" style="width: 38rem;color:#ffd32a">
-                        Currently CyanoKhoj is operating only in India. So currently options for state and city are 
-                        available for India Only.
+                    <div class="message-box mb-3" style="width: 38rem;color:#ffd32a">
+                        Currently CyanoKhoj is operating only for Indian organisations- only Indian states, cities and contact numbers
+                        are accepted.
                     </div>
                     <input type="submit" name="register-btn" id="submit-form" value="Register" class="btn">
 

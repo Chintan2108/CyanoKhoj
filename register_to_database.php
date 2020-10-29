@@ -79,12 +79,12 @@ require_once 'vendor/phpmailer/SMTP.php';
 			$mail->isSMTP();
 			$mail->Host = 'smtp.gmail.com';
 			$mail->SMTPAuth = true;
-			$mail->Username = 'schrutedwight600@gmail.com'; // Gmail address which you want to use as SMTP server
-			$mail->Password = 'Kingkong@1234'; // Gmail address Password
+			$mail->Username = ''; // Gmail address which you want to use as SMTP server
+			$mail->Password = ''; // Gmail address Password
 			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 			$mail->Port = '587';
 
-			$mail->setFrom('schrutedwight600@gmail.com'); // Gmail address which you used as SMTP server
+			$mail->setFrom(''); // Gmail address which you used as SMTP server
 			$mail->addAddress($_POST['email']); // Email address where you want to receive emails (you can use any of your gmail address including the gmail address which you used as SMTP server)
 
 			$mail->isHTML(true);
