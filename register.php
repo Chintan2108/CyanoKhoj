@@ -91,11 +91,11 @@ session_start();
 
                     <div class="input-container">
                         <input type="text" name="contact_no" id="contact_no" placeholder="Mobile Number" 
-                            pattern="[0-9]{3}" title="Only Digits Allowed">
+                            pattern="[0-9]{10}" title="Enter 10 Digit Number">
                         <label for="mobile_no"> Contact No </label>
                     </div>
 
-                    <div class="message-box text-warning" style="width: 36rem;">
+                    <div class="message-box" style="width: 38rem;color:#ffd32a">
                         Currently CyanoKhoj is operating only in India. So currently options for state and city are 
                         available for India Only.
                     </div>

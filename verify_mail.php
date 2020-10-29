@@ -9,7 +9,7 @@ if(isset($_POST['submit-btn'])){
 }
 
 
-if(isset($_GET['activation_code']))
+if(isset($_POST['activation_code']))
 {
   
   $query = "
@@ -19,7 +19,7 @@ if(isset($_GET['activation_code']))
 	$statement = $conn->prepare($query);
 	$statement->execute(
 		array(
-			':activation_code'	=>	$_GET['activation_code']
+			':activation_code'	=>	$_POST['activation_code']
 		)
 	);
 	
@@ -110,7 +110,7 @@ if(isset($_GET['activation_code']))
 		<div class="form-group">
 			<label for="pwd">Password:</label>
 			<input type="password" class="form-control" id="pwd" placeholder="Enter Password" name="pwd" minlength="5" 
-			pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+			pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
   title="Must contain at least one  number and one uppercase and lowercase letter, and at least 6 or more characters" required>
 			<i class="fa fa-eye password-toggle" aria-hidden="true"></i>
 			<div class="invalid-feedback pwd-1-validation"> </div>
@@ -125,7 +125,7 @@ if(isset($_GET['activation_code']))
 			<div class="pwd-2-feedback text-warning my-3"></div>
 		</div>
 
-			<input type="hidden" name="code" value="<?php echo(htmlentities($_GET['activation_code'])); ?>">
+			<input type="hidden" name="code" value="<?php echo(htmlentities($_POST['activation_code'])); ?>">
 		<button type="submit" class="btn btn-primary submit-btn">Create Password</button>
 	  </form>
 	
@@ -215,7 +215,7 @@ if(isset($_GET['activation_code']))
 			$(".pwd-2-feedback").html("Passwords do not match");
 		
 		else
-			$(".pwd-2-feedback").html("Passwords Match..");
+			$(".pwd-2-feedback").html("Passwords Match");
 	}
 	else
 		$(".pwd-2-feedback").html("");
@@ -236,6 +236,8 @@ if(isset($_GET['activation_code']))
 		else
 		$(".pwd-1-feeback").html("");
 	}  	
+	else
+		$(".pwd-1-feeback").html("");
 	
 	  
 	
@@ -244,7 +246,7 @@ if(isset($_GET['activation_code']))
 		if($("#re-pwd").val() !== $(this).val())
 			$(".pwd-2-feedback").html("Passwords do not match");
 		else
-			$(".pwd-2-feedback").html("Passwords Match!!");	
+			$(".pwd-2-feedback").html("Passwords Match");	
 	}
 });
 

@@ -66,8 +66,11 @@ require_once 'vendor/phpmailer/SMTP.php';
 		$message = "<p>Hi ".htmlentities($_POST['fullname']).",</p>
 		<p>Thank you for the registration with Cyanokhoj. To be able to use CyanoKhoj, please verify your email by clicking on the 
 		link below.</p>
-		<p><a target='blank' href=".$base_url."verify_mail.php?activation_code=".$activation_code.">Click Here</a> </p><p>
-		This an auto-generated email. Please do not reply to this email.</p>";
+		<form  method='post' action=".$base_url.'verify_mail.php'.">
+			<input type='hidden' target='blank' name='activation_code' value=".$activation_code.">
+			<input type='submit' class='btn btn-info' value='Click Here'>
+		</form>	
+		<p>This an auto-generated email. Please do not reply to this email.</p>";
 	
 
 	
@@ -76,12 +79,12 @@ require_once 'vendor/phpmailer/SMTP.php';
 			$mail->isSMTP();
 			$mail->Host = 'smtp.gmail.com';
 			$mail->SMTPAuth = true;
-			$mail->Username = 'seminarhallbs@gmail.com'; // Gmail address which you want to use as SMTP server
-			$mail->Password = 'bookmefast'; // Gmail address Password
+			$mail->Username = 'schrutedwight600@gmail.com'; // Gmail address which you want to use as SMTP server
+			$mail->Password = 'Kingkong@1234'; // Gmail address Password
 			$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 			$mail->Port = '587';
 
-			$mail->setFrom('CyanoKhoj'); // Gmail address which you used as SMTP server
+			$mail->setFrom('schrutedwight600@gmail.com'); // Gmail address which you used as SMTP server
 			$mail->addAddress($_POST['email']); // Email address where you want to receive emails (you can use any of your gmail address including the gmail address which you used as SMTP server)
 
 			$mail->isHTML(true);
