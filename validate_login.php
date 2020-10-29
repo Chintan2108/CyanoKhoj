@@ -1,26 +1,42 @@
 <?php
-
-$users = array('dyvavanikrishna' => 'minion123', 'chhayasharma' => 'betipushpa', 'bandatejaswari' => 'gisexpert', 'chintanmaniyar' => 'vampire123', 'admin' => 'admin' );
-
+/* $users = array('dyvavanikrishna' => 'minion123', 'chhayasharma' => 'betipushpa', 'bandatejaswari' => 'gisexpert', 'chintanmaniyar' => 'vampire123', 'admin' => 'admin' ); */
 session_start();
-
-$uname = $_POST['uname'];
-$pass = $_POST['pass'];
-
-if (array_key_exists($uname, $users))
+require_once("db-connection.php");
+if(isset($_POST['email']) && isset($_POST['pass']))
 {
-	if ($users[$uname] == $pass) {
-		$_SESSION['uname'] = $uname;
+	$pass = $_POST['pass'];
+	$pass=md5($pass);
+	$email =$_POST['email'];
+	$query="SELECT * FROM register_user WHERE user_email= :email";
+    $statement=$conn->prepare($query);
+	$statement->execute(array(":email"=>$email));
+	$row=$statement->fetch(PDO::FETCH_ASSOC);
+	if($row === false)
+	{
+		$_SESSION['message']="User does not exist.<br/>Register to create a new account.";
+		header("Location:login.php");
+		return;
+	}
+	else
+	{
+		if($pass != $row['user_password'])
+		{
+			$_SESSION['message']="Email and Password Combination Mismatch!";
+			header("Location:login.php");
+			return;
+		}
+		else
+		{
+			$_SESSION['uname']=$row['full_name'];
+			header("Location:index.php");
+		}
+	}
+}
+else
+{
+	header("Location:login.php");
+	return;
+}
 
-		echo "<script> location.href='index.php' </script>";
-	}
-	else {
-		$_SESSION['message']='Username and password combination mismatch!';
-		echo "<script> location.href='login.php' </script>";
-	}
-}
-else {
-	$_SESSION['message']='User does not exist!';
-	echo "<script> location.href='login.php' </script>";
-}
+
 ?>

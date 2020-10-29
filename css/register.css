@@ -1,0 +1,242 @@
+@charset "UTF-8";
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+@font-face {
+  font-family: Ubuntu-Regular;
+  src: url("../fonts/ubuntu/Ubuntu-Regular.ttf");
+}
+
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url("../fonts/ubuntu/Ubuntu-Bold.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: whitesmoke;
+  font-family: Raleway;
+  font-size: 2.2rem;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: #474787 radial-gradient(circle at 60% 100%, #474787 5%, #2c2c54 94%);
+  line-height: 1.1;
+}
+
+.parent-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.parent-container .logo {
+  height: 10vh;
+  color: #f1f2f6;
+  font-size: 4rem;
+  font-family: Ubuntu-Regular;
+}
+
+.parent-container .logo span {
+  color: #ffc451;
+  font-size: 4rem;
+}
+
+.parent-container .heading {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  text-transform: uppercase;
+  font-size: 2.8rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  border-bottom: .3rem solid #ffd32a;
+  font-family: Ubuntu-Regular;
+  letter-spacing: .15rem;
+}
+
+.parent-container .main-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-flow: row-reverse;
+          flex-flow: row-reverse;
+}
+
+.parent-container .main-container .form-container {
+  margin-top: 3rem;
+  padding: 1rem 0;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+.parent-container .main-container .form-container .input-container {
+  position: relative;
+  margin-bottom: 3.2rem;
+  /* input::-webkit-​input-placeholder{  
+                                    color: transparent;
+                                } */
+}
+
+.parent-container .main-container .form-container .input-container label {
+  position: absolute;
+  top: .8rem;
+  left: .5rem;
+  -webkit-transition: linear .2s all;
+  transition: linear .2s all;
+  font-size: 2.2rem;
+  letter-spacing: .15rem;
+  z-index: -1;
+}
+
+.parent-container .main-container .form-container .input-container .invalid-feedback {
+  font-size: 2.2rem !important;
+}
+
+.parent-container .main-container .form-container .input-container input {
+  background: transparent;
+  outline: none;
+  border: none;
+  border-bottom: .2rem solid whitesmoke;
+  color: #ffd32a;
+  padding: .5rem 1rem;
+}
+
+.parent-container .main-container .form-container .input-container input:focus {
+  border-color: #ffd32a;
+}
+
+.parent-container .main-container .form-container .input-container .org_type {
+  cursor: pointer;
+}
+
+.parent-container .main-container .form-container .input-container input[type=date]::-webkit-calendar-picker-indicator {
+  background-color: whitesmoke;
+}
+
+.parent-container .main-container .form-container .input-container input[type=date]:focus::-webkit-calendar-picker-indicator,
+.parent-container .main-container .form-container .input-container input[type=date]:valid::-webkit-calendar-picker-indicator {
+  background-color: #ffd32a;
+}
+
+.parent-container .main-container .form-container .input-container input[type=date]:required:invalid::-webkit-datetime-edit {
+  color: transparent;
+}
+
+.parent-container .main-container .form-container .input-container input[type=date]:focus::-webkit-datetime-edit {
+  color: #ffd32a !important;
+}
+
+.parent-container .main-container .form-container .input-container #contact_no:placeholder-shown + label {
+  top: .8rem;
+  left: .5rem;
+  letter-spacing: 0rem;
+}
+
+.parent-container .main-container .form-container .input-container #contact_no:not(:placeholder-shown) + label, .parent-container .main-container .form-container .input-container #contact_no:focus + label {
+  top: -2.5rem;
+  left: 0rem;
+  letter-spacing: 0rem;
+}
+
+.parent-container .main-container .form-container .input-container #contact_no::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+.parent-container .main-container .form-container .input-container #contact_no:-ms-input-placeholder {
+  opacity: 0;
+}
+
+.parent-container .main-container .form-container .input-container #contact_no::-ms-input-placeholder {
+  opacity: 0;
+}
+
+.parent-container .main-container .form-container .input-container #contact_no::placeholder {
+  opacity: 0;
+}
+
+.parent-container .main-container .form-container .input-container input:focus + label, .parent-container .main-container .form-container .input-container input:valid + label {
+  top: -2.5rem;
+  left: 0rem;
+  letter-spacing: 0rem;
+}
+
+.parent-container .main-container .form-container #submit-form {
+  background-color: #ffd32a;
+  border-radius: 1rem;
+  color: black;
+  font-size: 2.2rem;
+  padding: .5rem 1.5rem;
+  margin: auto;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.parent-container .main-container .img-container {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.parent-container .main-container .img-container img {
+  width: 50rem;
+}
+
+/*Responsive Media Queries*/
+@media (max-width: 998px) {
+  html {
+    font-size: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 58%;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 55%;
+  }
+  .parent-container .main-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row;
+            flex-flow: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .img-container {
+    display: none;
+  }
+}
+
+@media (max-width: 350px) {
+  html {
+    font-size: 50%;
+  }
+}
+/*# sourceMappingURL=register.css.map */
