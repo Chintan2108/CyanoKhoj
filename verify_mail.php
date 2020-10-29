@@ -110,8 +110,9 @@ if(isset($_POST['activation_code']))
 		<div class="form-group">
 			<label for="pwd">Password:</label>
 			<input type="password" class="form-control" id="pwd" placeholder="Enter Password" name="pwd"
-			pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-  title="Must contain at least one  number and one uppercase and lowercase letter and special character, and at least 8 or more characters" required>
+			pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$"
+			
+  title="Must contain at least one  number and one uppercase and lowercase letter and special character, and at least 8 or atmost 15 characters" required>
 			<i class="fa fa-eye password-toggle" aria-hidden="true"></i>
 			<div class="invalid-feedback pwd-1-validation"> </div>
 			<div class="pwd-1-feeback text-warning my-3"></div>
@@ -179,8 +180,10 @@ if(isset($_POST['activation_code']))
 			var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
 			if(!($("#pwd").val().match(passw))) 
 			{ 
-				$(".pwd-1-validation").html("Must contain at least one number, one uppercase and lowercase letter <br/>and a special character , and at least 8 or more characters");
+				$(".pwd-1-validation").html("Must contain at least one number, one uppercase and lowercase letter <br/>and a special character , and at least 8 or atmost 15 characters");
 				$(".pwd-1-feeback").html("");
+				event.preventDefault();
+				event.stopPropagation();
 			}
 		}
 			else
@@ -231,7 +234,7 @@ if(isset($_POST['activation_code']))
 		var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
 		if(!($("#pwd").val().match(passw))) 
 		{ 
-			$(".pwd-1-feeback").html("Must contain at least one number, one uppercase and lowercase letter <br/>and a special character , and at least 8 or more characters");
+			$(".pwd-1-feeback").html("Must contain at least one number, one uppercase and lowercase letter <br/>and a special character , and at least 8 or atmost 15 characters");
 		}
 		else
 		$(".pwd-1-feeback").html("");
