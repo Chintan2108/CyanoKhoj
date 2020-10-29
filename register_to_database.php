@@ -58,7 +58,7 @@ require_once 'vendor/phpmailer/SMTP.php';
 		);
 		
 
-		$base_url = "http://localhost/first/Cyanokhoj/"; 
+		$base_url = "http://34.67.7.17/CyanoKhoj/"; 
 		
 		$recipient = $_POST['email'];
 		$subject = "Verify your email address for CyanoKhoj";
