@@ -1,0 +1,34 @@
+/*Responsive Media Queries*/
+html{
+    font-size: 62.5%;
+}
+
+@media (max-width: 998px) {
+    html {
+      font-size: 60%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    html {
+      font-size: 58%;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    html {
+      font-size: 52%;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    html {
+      font-size: 48%;
+    }
+  }
+  
+  @media (max-width: 350px) {
+    html {
+      font-size: 45%;
+    }
+  }
