@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 @font-face {
@@ -17,8 +16,14 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: whitesmoke;
-  font-family: Raleway;
+  font-family: 'Poppins',sans-serif;
   font-size: 2.2rem;
+}
+
+::-webkit-datetime-edit-year-field:not([aria-valuenow]),
+::-webkit-datetime-edit-month-field:not([aria-valuenow]),
+::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
+  color: transparent;
 }
 
 html {
@@ -27,7 +32,10 @@ html {
 
 body {
   background: #474787 radial-gradient(circle at 60% 100%, #474787 5%, #2c2c54 94%);
-  line-height: 1.1;
+}
+
+.selected-option {
+  color: #ffd32a;
 }
 
 .parent-container {
@@ -61,7 +69,7 @@ body {
       -ms-grid-row-align: center;
       align-self: center;
   text-transform: uppercase;
-  font-size: 2.8rem;
+  font-size: 3.2rem;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -83,7 +91,8 @@ body {
 }
 
 .parent-container .main-container .form-container {
-  margin-top: 3rem;
+  margin-top: 8rem;
+  margin-bottom: 5rem;
   padding: 1rem 0;
   -ms-flex-item-align: start;
       align-self: flex-start;
@@ -91,10 +100,7 @@ body {
 
 .parent-container .main-container .form-container .input-container {
   position: relative;
-  margin-bottom: 3.2rem;
-  /* input::-webkit-​input-placeholder{  
-                                    color: transparent;
-                                } */
+  margin-bottom: 3.4rem;
 }
 
 .parent-container .main-container .form-container .input-container label {
@@ -106,6 +112,7 @@ body {
   font-size: 2.2rem;
   letter-spacing: .15rem;
   z-index: -1;
+  color: #ffd32a;
 }
 
 .parent-container .main-container .form-container .input-container .invalid-feedback {
@@ -119,14 +126,71 @@ body {
   border-bottom: .2rem solid whitesmoke;
   color: #ffd32a;
   padding: .5rem 1rem;
+  width: 35rem;
 }
 
 .parent-container .main-container .form-container .input-container input:focus {
   border-color: #ffd32a;
 }
 
-.parent-container .main-container .form-container .input-container .org_type {
+.parent-container .main-container .form-container .input-container .radio-option {
+  position: relative;
   cursor: pointer;
+}
+
+.parent-container .main-container .form-container .input-container .radio-option .input-radio {
+  opacity: 0;
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.parent-container .main-container .form-container .input-container .radio-option .org_type {
+  cursor: pointer;
+  letter-spacing: .1rem;
+}
+
+.parent-container .main-container .form-container .input-container .radio-option .checkmark {
+  position: absolute;
+  cursor: pointer;
+  bottom: 0.8rem;
+  left: 0;
+  height: 1.7rem;
+  width: 1.7rem;
+  background-color: #dcdde1;
+  border-radius: 50%;
+}
+
+.parent-container .main-container .form-container .input-container .radio-option:hover .input-radio ~ .checkmark {
+  background-color: #bdc3c7;
+}
+
+.parent-container .main-container .form-container .input-container .radio-option .input-radio:checked ~ .checkmark {
+  background-color: #cbac1d;
+}
+
+.parent-container .main-container .form-container .input-container .radio-option .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.parent-container .main-container .form-container .input-container .radio-option .input-radio:checked ~ .checkmark:after {
+  display: block;
+}
+
+.parent-container .main-container .form-container .input-container .radio-option .checkmark:after {
+  top: 50%;
+  left: 50%;
+  width: .8rem;
+  height: .8rem;
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: white;
 }
 
 .parent-container .main-container .form-container .input-container input[type=date]::-webkit-calendar-picker-indicator {
@@ -138,10 +202,6 @@ body {
   background-color: #ffd32a;
 }
 
-.parent-container .main-container .form-container .input-container input[type=date]:required:invalid::-webkit-datetime-edit {
-  color: transparent;
-}
-
 .parent-container .main-container .form-container .input-container input[type=date]:focus::-webkit-datetime-edit {
   color: #ffd32a !important;
 }
@@ -150,12 +210,14 @@ body {
   top: .8rem;
   left: .5rem;
   letter-spacing: 0rem;
+  color: #ffd32a;
 }
 
 .parent-container .main-container .form-container .input-container #contact_no:not(:placeholder-shown) + label, .parent-container .main-container .form-container .input-container #contact_no:focus + label {
   top: -2.5rem;
   left: 0rem;
   letter-spacing: 0rem;
+  color: whitesmoke;
 }
 
 .parent-container .main-container .form-container .input-container #contact_no::-webkit-input-placeholder {
@@ -178,19 +240,23 @@ body {
   top: -2.5rem;
   left: 0rem;
   letter-spacing: 0rem;
+  color: whitesmoke;
 }
 
 .parent-container .main-container .form-container #submit-form {
   background-color: #ffd32a;
+  text-transform: uppercase;
   border-radius: 1rem;
-  color: black;
+  color: #1e272e;
+  width: 20rem;
   font-size: 2.2rem;
   padding: .5rem 1.5rem;
   margin: auto;
+  letter-spacing: 0.2rem;
   position: relative;
   left: 50%;
   -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 
 .parent-container .main-container .img-container {
@@ -214,12 +280,6 @@ body {
   html {
     font-size: 58%;
   }
-}
-
-@media (max-width: 600px) {
-  html {
-    font-size: 55%;
-  }
   .parent-container .main-container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -231,6 +291,12 @@ body {
   }
   .img-container {
     display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 55%;
   }
 }
 
