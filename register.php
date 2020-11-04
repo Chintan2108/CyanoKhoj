@@ -35,11 +35,12 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="css/register.css">
-</head>
 
+</head>
 <body>
 
-<div class="parent-container container-fluid">
+
+<div class="parent-container px-3">
     <a href="login.php" style="text-decoration:none;">
         <h1 class="logo pt-2"> CyanoKhoj<span>.</span> </h1>	
     </a>
@@ -48,6 +49,72 @@ session_start();
         <div class="main-container">
             <div class="form-container">
 
+                <!-- <form action="register_to_database.php" method="POST" name="registration">
+
+                    <div class="input-container">
+                        <input type="text" name="fullname" id="fullname"  required>
+                        <label for="name"> Full Name<span class="required">*</span> </label>
+                    </div>
+
+                    <div class="input-container">
+                        <input type="email" name="email" id="email" required>
+                        <label for="email"> Email<span class="required">*</span> </label>
+                    </div>
+
+                    <div class="input-container">
+                        <input type="text" name="dob" id="dob" min="01/01/1930"  required  onfocus="(this.type='date')"
+                         onblur="if(!this.value)this.type='text'">
+                        <label for="dob"> Date of Birth<span class="required">*</span> </label>
+                    </div>
+
+                    <div class="input-container">
+                        <input type="text" name="org" id="org" required>
+                        <label for="org"> Organisation Name<span class="required">*</span></label>
+                    </div>
+
+                    <div class="input-container d-inline-block">
+                        <input type="text" name="city" style="width: 18rem;overflow:hidden" id="city"  required>
+                        <label for="city"> City<span class="required">*</span> </label>
+                    </div>
+
+                    <div class="input-container d-inline-block ml-4">
+                        <input type="text" name="state" style="width: 20rem;overflow:hidden" id="state" required>
+                        <label for="state"> State<span class="required">*</span> </label>
+                    </div>
+
+                    <div class="input-container">
+                        <p style="font-size: 2.2rem;letter-spacing:.15rem;color: #ffd32a; transition: linear .2s all;"> 
+                                Organisation Type<span class="required">*</span> 
+                        </p>    
+
+                        <div class="radio-option pl-5">
+                            <input type="radio" required name="org_type" value="Government" class="input-radio ml-5" > 
+                            <span class="checkmark ml-5"></span>
+                            <span class="org_type ml-5"> Government </span> <br/>
+                        </div>
+
+                        <div class="radio-option pl-5">
+                            <input type="radio" required name="org_type" value="Private" class="input-radio ml-5" > 
+                            <span class="checkmark ml-5"></span>
+                            <span class="org_type ml-5"> Private </span> 
+                        </div>
+                  
+                    </div>
+
+                    <div class="input-container">
+                        <input type="text" name="contact_no" id="contact_no" placeholder="Mobile Number" 
+                            pattern="[0-9]{10}" title="Enter 10 Digit Number">
+                        <label for="mobile_no"> Contact No </label>
+                    </div>
+
+                    <div class="message-box mb-3" style="width: 45rem;color:whitesmoke;font-size: 2rem;">
+                        Currently CyanoKhoj is operating only for Indian organisations- only Indian states, cities and contact numbers
+                        are accepted.
+                    </div>
+                    <input type="submit" name="register-btn" id="submit-form" value="Register" class="btn"> 
+                </form> -->
+<!-- //////////////////////////////////////////////////// -->
+                
             <form id="registration" action="register_to_database.php" method="POST" name="registration" onsubmit="return checkvalidation(); ">
                 
                 <div class="input-container">
@@ -61,7 +128,8 @@ session_start();
                 </div>
 
                 <div class="input-container">
-                    <input type="date" name="dob" id="dob" onchange="dobValidation()"required>
+                    <input type="text" name="dob" id="dob" onchange="dobValidation()" onfocus="(this.type='date')"
+                         onblur="if(!this.value)this.type='text'" required>
                     <label for="dob"> Date of Birth<span class="required">*</span> </label>
                 </div>
 
@@ -71,21 +139,32 @@ session_start();
                 </div>
                 
                 <div class="input-container">
-                <input type="hidden" name="country" id="countryId" value="IN"/>
-                <select name="state" class="states order-alpha" style="width: 18rem;overflow:hidden; background:#3d3d74;"  id="stateId" required>
-                    <option value="">Select State</option>
-                </select>
-                <select name="city" class="cities order-alpha" style="width: 18rem;overflow:hidden; background:#3d3d74;"  id="cityId" required>
-                    <option value="">Select City</option>
-                </select>
+                    <input type="hidden" name="country" id="countryId" value="IN"/>
+                    <select name="state" class="states order-alpha"  id="stateId" required>
+                        <option value="">Select State* </option>
+                    </select>
+                    <select name="city" class="cities order-alpha"  id="cityId" required>
+                        <option value="">Select City <span class="required">*</span> </option>
+                    </select>
                 </div>
 
                 <div class="input-container">
-                    <p style="font-size: 2.2rem;letter-spacing:.15rem;">Organisation Type<span class="required">*</span>:</p>    
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" required name="org_type" value="Government" class="name_field" >
-                    <span class="org_type ml-2"> Government </span> <br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" required name="org_type" value="Private" class="name_field" > 
-                    <span class="org_type ml-2"> Private </span> 
+                    <p style="font-size: 2.2rem;letter-spacing:.15rem;color: #ffd32a; transition: linear .2s all;"> 
+                        Organisation Type<span class="required">*</span> 
+                    </p>    
+
+                    <div class="radio-option pl-5">
+                        <input type="radio" required name="org_type" value="Government" class="input-radio ml-5" > 
+                        <span class="checkmark ml-5"></span>
+                        <span class="org_type ml-5"> Government </span> <br/>
+                    </div>
+
+                    <div class="radio-option pl-5">
+                        <input type="radio" required name="org_type" value="Private" class="input-radio ml-5" > 
+                        <span class="checkmark ml-5"></span>
+                        <span class="org_type ml-5"> Private </span> 
+                    </div>
+                   
                 </div>
 
                 <div class="input-container">
@@ -93,8 +172,9 @@ session_start();
                     <label for="mobile_no"> Contact No </label>
                 </div>
 
-                <div class="message-box mb-3" style="width: 38rem;color:#ffd32a">
-                    Currently CyanoKhoj is operating only for Indian organisations- only Indian states, cities and contact numbers are accepted.
+                <div class="message-box mb-3" style="width: 45rem;color:whitesmoke;font-size: 2rem;">
+                        Currently CyanoKhoj is operating only for Indian organisations- only Indian states, cities and contact numbers
+                        are accepted.
                 </div>
                 
                 <input type="submit" name="register-btn" id="submit-form" value="Register" class="btn" >

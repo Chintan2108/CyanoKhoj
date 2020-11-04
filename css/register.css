@@ -31,7 +31,7 @@ html {
 }
 
 body {
-  background: #474787 radial-gradient(circle at 60% 100%, #474787 5%, #2c2c54 94%);
+  background: radial-gradient(circle at 60% 100%, #5146b0 5%, #1b1754 94%);
 }
 
 .selected-option {
@@ -91,7 +91,7 @@ body {
 }
 
 .parent-container .main-container .form-container {
-  margin-top: 8rem;
+  margin-top: 5rem;
   margin-bottom: 5rem;
   padding: 1rem 0;
   -ms-flex-item-align: start;
@@ -110,7 +110,7 @@ body {
   -webkit-transition: linear .2s all;
   transition: linear .2s all;
   font-size: 2.2rem;
-  letter-spacing: .15rem;
+  letter-spacing: .1rem;
   z-index: -1;
   color: #ffd32a;
 }
@@ -193,6 +193,31 @@ body {
   background: white;
 }
 
+.parent-container .main-container .form-container .input-container .states, .parent-container .main-container .form-container .input-container .cities {
+  width: 21rem;
+  overflow: hidden;
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: .2rem solid whitesmoke;
+  color: #ffd32d;
+  -webkit-transition: linear .2s all;
+  transition: linear .2s all;
+}
+
+.parent-container .main-container .form-container .input-container .states option, .parent-container .main-container .form-container .input-container .cities option {
+  background-color: #1b1754;
+}
+
+.parent-container .main-container .form-container .input-container .states:focus, .parent-container .main-container .form-container .input-container .cities:focus {
+  border-bottom: .2rem solid #ffd32a;
+  color: white;
+}
+
+.parent-container .main-container .form-container .input-container .required {
+  color: whitesmoke;
+}
+
 .parent-container .main-container .form-container .input-container input[type=date]::-webkit-calendar-picker-indicator {
   background-color: whitesmoke;
 }
@@ -268,11 +293,7 @@ body {
 .parent-container .main-container .img-container img {
   width: 50rem;
 }
-.input-container select:focus {
-  border: .2rem solid #ffd32a;
-  color: white;
-  padding: .5rem 1rem;
-}
+
 /*Responsive Media Queries*/
 @media (max-width: 998px) {
   html {

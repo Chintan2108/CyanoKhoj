@@ -28,6 +28,7 @@ if(isset($_POST['email']) && isset($_POST['pass']))
 		else
 		{
 			$_SESSION['uname']=$row['full_name'];
+			$_SESSION['user_id']=$row['user_id'];
 			header("Location:index.php");
 		}
 	}

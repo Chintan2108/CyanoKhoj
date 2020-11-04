@@ -1,13 +1,23 @@
+$(document).ready(function(){
+    //Select radio-option if clicked across it.
+    $(".radio-option").click(function(){
+    
+        $(this).parent().find("p").css({'color':'whitesmoke','letter-spacing':'0' });
 
-/*$(document).ready(function(){
-    //Select option if clicked upon text
-    $(".org_type").click(function(){
-        if($(this).prev().prop("checked")===false)
-            $(this).prev().prop("checked",true);
+        $(".org_type").removeClass('selected-option');
+
+        if($(this).children(".input-radio").prop("checked")===false)
+        {
+            $(this).children(".input-radio").prop("checked",true);
+            $(this).children(".org_type").addClass('selected-option');
+        }
         else
             $(this).children(".input-radio").prop("checked",true);
     });
-});*/
+
+  
+});
+
 function NameValidation(){
     var user = document.getElementById('fullname').value;
     //username should contain firstname and lastname 

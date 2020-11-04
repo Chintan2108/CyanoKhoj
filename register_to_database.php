@@ -138,7 +138,7 @@ require_once 'vendor/phpmailer/SMTP.php';
 		<style>
 
 		body,.parent-container{
-			background-color: #221f41 ;
+			background: radial-gradient(circle at 60% 100%,#5146b0  5%, #1b1754 94%) ;
 			height: 100vh;
 		}
 
