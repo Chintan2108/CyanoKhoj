@@ -193,6 +193,31 @@ body {
   background: white;
 }
 
+.parent-container .main-container .form-container .input-container .states, .parent-container .main-container .form-container .input-container .cities {
+  width: 21rem;
+  overflow: hidden;
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: .2rem solid whitesmoke;
+  color: #ffd32d;
+  -webkit-transition: linear .2s all;
+  transition: linear .2s all;
+}
+
+.parent-container .main-container .form-container .input-container .states option, .parent-container .main-container .form-container .input-container .cities option {
+  background-color: #1b1754;
+}
+
+.parent-container .main-container .form-container .input-container .states:focus, .parent-container .main-container .form-container .input-container .cities:focus {
+  border-bottom: .2rem solid #ffd32a;
+  color: white;
+}
+
+.parent-container .main-container .form-container .input-container .required {
+  color: whitesmoke;
+}
+
 .parent-container .main-container .form-container .input-container input[type=date]::-webkit-calendar-picker-indicator {
   background-color: whitesmoke;
 }
