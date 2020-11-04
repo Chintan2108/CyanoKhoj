@@ -202,7 +202,11 @@ body {
 .parent-container .main-container .img-container img {
   width: 50rem;
 }
-
+.input-container select:focus {
+  border: .2rem solid #ffd32a;
+  color: white;
+  padding: .5rem 1rem;
+}
 /*Responsive Media Queries*/
 @media (max-width: 998px) {
   html {
