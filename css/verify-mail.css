@@ -1,0 +1,70 @@
+body{
+    background:radial-gradient(circle at 60% 100%,#5146b0  5%, #1b1754 94%) ;
+    height: 100vh;
+}
+.parent-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo{
+    color: #f1f2f6;
+    font-size: 4rem;
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    font-size: 4rem;
+}
+.logo span{
+    color: #ffd32a;
+}
+
+.message{
+    font-size: 2.6rem;
+    color: #ffd32a;
+    font-family: Raleway,sans-serif;
+    text-align: center;
+    width: 66rem;
+    margin: auto;
+}
+.message a{
+    color: floralwhite;
+    font-size: 2.4rem;
+}
+form{
+    text-align: left;
+}
+form .invalid-feedback,.pwd-1-feeback,.pwd-2-feedback{
+    font-size: 2rem !important;
+}
+.form-group{
+    position: relative;
+}
+
+form .form-group .password-toggle {
+    font-size: 2.2rem;
+    position: absolute;
+    color: #221f41;
+    right: 3.5rem;
+    top: 5rem;
+    cursor: pointer;
+  }
+  
+  /*Hide default show password button*/
+  input::-ms-reveal,
+  input::-ms-clear {
+    display: none;
+  }
+  
+form input{
+    font-size: 2.2rem !important;
+}
+form label{
+    color: whitesmoke;
+    font-size: 2.4rem;
+}
+.submit-btn{
+    font-size: 2rem;
+}

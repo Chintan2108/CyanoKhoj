@@ -29,6 +29,7 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 <!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<link href="https://fonts.googleapis.com/css2?family=Acme&family=Arvo&family=Commissioner&family=Josefin+Sans&family=Jost:wght@500&family=Noto+Sans+JP:wght@500&family=Raleway:wght@500&family=Roboto&family=Ubuntu&family=Varela+Round&display=swap" rel="stylesheet">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
@@ -40,7 +41,9 @@ session_start();
 	
 	<div class="limiter">
 	  
-		<h1 class="logo mx-2 pt-2">CyanoKhoj<span>.</span></h1>	
+	<a href="login.php" style="text-decoration:none;">
+        <h1 class="logo pl-2 pt-2"> CyanoKhoj<span>.</span> </h1>	
+    </a>
 
   		<div class="container-login100">
 
@@ -54,7 +57,7 @@ session_start();
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
 						<i class="fa fa-user" aria-hidden="true"></i>
-						<input class="input100" type="text" name="uname" id="uname" placeholder="Username">
+						<input class="input100" type="email" name="email" id="uname" placeholder="Email">
 						<span class="focus-input100"></span>
 					</div>
 					
@@ -83,13 +86,13 @@ session_start();
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button type="submit" class="login100-form-btn">
 							Login
 						</button>
 					</div>
 					
 					<div class="register-container w-100 mt-4">
-						<button class="register-btn" onclick="window.location.href='login.php';">
+						<button class="register-btn" onclick="window.location.href='register.php';">
 							Register
 						</button>
 						<h2 class="text-center my-3">New Here? Register </h2>

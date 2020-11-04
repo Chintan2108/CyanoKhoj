@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found</title>
+    <link href="assets/css/style.css" rel="stylesheet">
+	<!--===============================================================================================-->	
+		<link href="images/icons/gee.ico" rel="icon">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<!--===============================================================================================-->	
+		<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<!--===============================================================================================-->	
+		<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="css/util.css">
+        <link rel="stylesheet" type="text/css" href="css/register.css">
+    <style>
+        *{
+            font-family: 'Poppins';
+        }
+
+        body{
+            background:radial-gradient(circle at 60% 100%,#5245b9  5%, #4b458e 94%);
+            min-height: 100vh;
+        }
+        body,.parent-container{
+			/* background-color: #221f41 ; */
+			height: 100vh;
+		}
+        .message div{
+            font-size: 2.8rem;
+            color: #ffd940;
+          
+        }
+        .img-fluid{
+            width: 80rem;
+            height: 35rem;
+        }
+
+        .btn{
+            background-color:#f2f2f2;
+            color: black;
+            font-size: 2.4rem;
+
+        }
+    </style>
+    <script>
+        setTimeout(function(){
+            window.location.href='login.php';
+        },5000);
+    </script>
+</head>
+<body>
+
+    	
+<div class="parent-container container-fluid">
+
+	<a href="login.php" style="text-decoration:none;">
+		<h1 class="logo pl-2 pt-2" style="font-size: 4.5rem;">CyanoKhoj<span>.</span></h1>	
+    </a>
+
+    
+    
+    <center class="message">
+        <h1 style="font-size: 4rem; border-bottom: .2rem solid #f1c40f;width: max-content;" class="mb-5">404 ERROR</h1>
+        <img src="images/icons/404.svg" class="img-fluid mb-5">
+       
+        <div> The Page you are looking for could not be found on this server. </div>
+        <input type="button" class="btn btn-warning mt-5" value="Go Back" onclick="window.location.href='login.php'">
+    </center>
+        
+   
+</body>
+</html>

@@ -16,19 +16,19 @@
   margin: 0rem;
   padding: 0rem;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   color: #f1f2f6;
 }
 
-html{
-  font-size: 62.5%; /*1rem=10px*/
-  font-family: Ubuntu-Regular, sans-serif;
+html {
+  font-size: 62.5%;
+  /*1rem=10px*/
 }
 
-body{
+body, html {
   height: 100%;
-  background: radial-gradient(circle at 60% 100%, #0652DD 5%, #1B1464 94%);
   font-family: Ubuntu-Regular, sans-serif;
+  background: radial-gradient(circle at 60% 100%, #0652DD 5%, #1B1464 94%);
 }
 
 /*---------------------------------------------*/
@@ -123,12 +123,6 @@ label {
   margin: 0;
 }
 
-/*Remove Default Show Password Button*/
-input::-ms-reveal,
-input::-ms-clear {
-  display: none;
-}
-
 /*---------------------------------------------*/
 button {
   outline: none !important;
@@ -159,16 +153,14 @@ iframe {
   width: 100%;
   height: 100vh;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
   background: radial-gradient(circle at 60% 100%, #0652DD 5%, #1B1464 94%);
 }
 
 /*LOGO*/
 .limiter .logo {
-  height: 25vh;
+  height: 10vh;
   color: #f1f2f6;
-  font-size: 4.2rem;
+  font-size: 4rem;
 }
 
 .limiter .logo span {
@@ -177,7 +169,7 @@ iframe {
 
 .container-login100 {
   width: 100%;
-  height: auto;
+  height: 89vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -211,7 +203,7 @@ iframe {
 
 .login100-form-title {
   font-family: Ubuntu-Bold;
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   color: #f1f2f6;
   line-height: 1.2;
   text-transform: uppercase;
@@ -231,8 +223,8 @@ iframe {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 100%;
   position: relative;
   /* background-color: #e6e6e6; */
@@ -245,11 +237,17 @@ iframe {
   font-size: 3.0rem;
 }
 
-.wrap-input100 .fa-eye {
+.wrap-input100 #password-toggle {
   font-size: 2.2rem;
   position: absolute;
   right: -1.0rem;
   cursor: pointer;
+}
+
+/*Hide default show password button*/
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
 }
 
 /*---------------------------------------------*/
@@ -257,7 +255,7 @@ iframe {
   font-family: Ubuntu-Bold;
   color: #f1f2f6;
   line-height: 1.2;
-  font-size: 2.1rem;
+  font-size: 2.2rem;
   display: block;
   width: 100%;
   background: transparent;
@@ -342,11 +340,11 @@ iframe {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   position: absolute;
   width: 1.8rem;
   height: 1.8rem;
@@ -371,10 +369,10 @@ iframe {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.login100-form-btn,.register-btn {
+.login100-form-btn, .register-btn {
   font-family: Ubuntu-Bold;
   color: #f1f2f6;
   background-image: -webkit-gradient(linear, left top, right top, from(#DD9106), color-stop(#ff5e57), to(#DD9106));
@@ -388,36 +386,35 @@ iframe {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding: 0 2.0rem;
   width: 100%;
   height: 6.2rem;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
+
 .login100-form-btn:hover {
   background-position: right center;
   -webkit-box-shadow: 0 0 .3rem .1rem #000;
-          box-shadow: 0 0 .3rem .1rem #000;
+  box-shadow: 0 0 .3rem .1rem #000;
 }
 
-.register-btn{
+.register-btn {
   background: transparent;
   border: .2rem solid #ff5e57;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
 }
 
-.register-btn:hover{
+.register-btn:hover {
   /* transform: scale(1.1);  */
   border: .2rem solid whitesmoke;
 }
-
-
 
 /*------------------------------------------------------------------
   [ Alert validate ]*/
@@ -475,57 +472,57 @@ iframe {
 }
 
 /*Toast Message*/
-
-.toast-container{
-  position:absolute;
-  height:100%;
-  width:100%;
-  top:0%;
-  left:0%;
-  display:none;
-  background: rgba(0,0,0,0.6);
+.toast-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  display: none;
+  background: rgba(0, 0, 0, 0.6);
 }
 
-#toast{
-  position:absolute; 
+#toast {
+  position: absolute;
   width: 35rem;
-  top:50%;
-  left:50%;
+  top: 50%;
+  left: 50%;
   font-size: 2.2rem;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
+/*Responsive Media Queries*/
+@media (max-width: 998px) {
+  html {
+    font-size: 60%;
+  }
+}
 
-  /*Responsive Media Queries*/
-  @media(max-width: 998px)
-  {
-    html{
-      font-size: 60%;
-    }
+@media (max-width: 768px) {
+  html {
+    font-size: 58%;
   }
+}
 
-  @media(max-width: 768px)
-  {
-    html{
-      font-size: 58%;
-    }
+@media (max-width: 600px) {
+  html {
+    font-size: 55%;
   }
-  @media(max-width: 600px)
-  {
-    html{
-      font-size: 55%;
-    }
-  }
-  @media(max-width: 400px)
-  {
-    html{
-      font-size: 52%;
-    }
-  }
+}
 
-  @media(max-width: 350px)
-  {
-    html{
-      font-size: 44%;
-    }
+@media (max-width: 400px) {
+  html {
+    font-size: 52%;
   }
+}
+
+@media (max-width: 350px) {
+  html {
+    font-size: 44%;
+  }
+}
+
+/*//////////////////////////////////////////////////////////////////
+  [ Responsive ]*/
+/*# sourceMappingURL=main.css.map */
