@@ -41,7 +41,7 @@ session_start();
 
 <div class="parent-container container-fluid">
     <a href="login.php" style="text-decoration:none;">
-        <h1 class="logo pl-2 pt-2"> CyanoKhoj<span>.</span> </h1>	
+        <h1 class="logo pt-2"> CyanoKhoj<span>.</span> </h1>	
     </a>
 
     <div class="heading"> Register </div>

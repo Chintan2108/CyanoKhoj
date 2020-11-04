@@ -5,7 +5,7 @@
         if($(this).prev().prop("checked")===false)
             $(this).prev().prop("checked",true);
         else
-            $(this).prev().prop("checked",false);
+            $(this).children(".input-radio").prop("checked",true);
     });
 });*/
 function NameValidation(){
