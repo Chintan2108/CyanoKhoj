@@ -512,7 +512,6 @@ $(document).ready( function () {
         
         //Lock Input Field By Default as Modal is Opened    
         $("#my-profile").click(function () {
-           ("Modal Opened");
           $("input").prop('disabled', true);
           $("input").css('background-color','antiquewhite');
           $("#apply-changes-btn").css({'background-color':'#6c757d','font-weight':'500','cursor': 'not-allowed'});
