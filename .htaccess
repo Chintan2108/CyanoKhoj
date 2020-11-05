@@ -1,2 +1,2 @@
-DirectoryIndex login.php
+DirectoryIndex index.php login.php
 ErrorDocument 404 http://34.67.7.17/CyanoKhoj/404.html
