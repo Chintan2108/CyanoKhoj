@@ -26,7 +26,7 @@ if(isset($_POST['email']) && isset($_POST['pass']))
 			return;
 		}
 		// for demo purpose
-		elseif($_POST['email']=='admin' && $_POST['pass']=='admin')
+		elseif($_POST['email']=='admin@email.com' && $_POST['pass']=='admin')
 		{
 			$_SESSION['uname']='Demo User';
 			$_SESSION['user_id']='Demo User';
