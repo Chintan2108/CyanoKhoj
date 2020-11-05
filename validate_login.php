@@ -25,6 +25,13 @@ if(isset($_POST['email']) && isset($_POST['pass']))
 			header("Location:login.php");
 			return;
 		}
+		// for demo purpose
+		elseif($_POST['email']=='admin' && $_POST['pass']=='admin')
+		{
+			$_SESSION['uname']='Demo User';
+			$_SESSION['user_id']='Demo User';
+			header("Location:index.php");
+		}
 		else
 		{
 			$_SESSION['uname']=$row['full_name'];
