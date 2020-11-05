@@ -509,14 +509,12 @@ else
 $(document).ready( function () {  
 
         const userId=<?php echo($_SESSION['user_id']); ?>;
-        console.log(userId);
         
         //Lock Input Field By Default as Modal is Opened    
         $("#my-profile").click(function () {
-          console.log("Modal Opened");
+           ("Modal Opened");
           $("input").prop('disabled', true);
           $("input").css('background-color','antiquewhite');
-          // $(this).prev().css("background-color","antiquewhite");
           $("#apply-changes-btn").css({'background-color':'#6c757d','font-weight':'500','cursor': 'not-allowed'});
           
           //Fetch from Database using ajax
@@ -543,7 +541,6 @@ $(document).ready( function () {
 
         //Unlock respective input field as edit btn is clicked  
         $(".edit-btn").on('click', function(){
-          console.log("edit clciked");
           $(this).prev().prop("disabled",false);
           $(this).prev().css("background-color","aliceblue");
           $(this).prev().focus();
@@ -559,7 +556,6 @@ $(document).ready( function () {
         })
 
       $("#apply-changes-btn").click( function(){
-        console.log("Apply btn clicked");
         let  name=$("#full-name").val();
         let  organisation=$("#organisation").val();
         let  state=$("#state").val();
