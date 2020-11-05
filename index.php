@@ -1,21 +1,35 @@
 <?php 
 session_start();
-require_once("db-connection.php");
+$user_name='';
 
-if (isset($_SESSION['uname']) == FALSE) {
+if (isset($_SESSION['uname']) == FALSE) 
+{
   echo "<script> location.href='login.php' </script>";
 }
-else {
-  $json = exec("python3 tweet_tracker.py");
-  $arr = json_decode($json, TRUE);
-  $stmt=$conn->prepare("SELECT full_name FROM register_user WHERE user_id=".$_SESSION['user_id']);
-  $stmt->execute();
-  
-  $row=$stmt->fetch(PDO::FETCH_ASSOC);
- 
 
+else 
+{
+    $json = exec("python3 tweet_tracker.py");
+    $arr = json_decode($json, TRUE);
+
+    if(isset($_SESSION['static_user']))
+    {
+      if($_SESSION['static_user'] === true)
+      {
+        $user_name=$_SESSION['uname'];
+        // echo($_SESSION['user_id']);
+      }
+    }
+
+    else
+    {
+      require_once("db-connection.php");
+      $stmt=$conn->prepare("SELECT full_name FROM register_user WHERE user_id=".$_SESSION['user_id']);
+      $stmt->execute();
+      $row=$stmt->fetch(PDO::FETCH_ASSOC);
+      $user_name=$row['full_name'];
+    }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -110,7 +124,7 @@ else {
     </div>
     <!-- MENU -->
     <div class="nav-username">
-      <h2> Welcome <?php echo(htmlentities($row['full_name']))?>!</h2>
+      <h2> Welcome <?php echo(htmlentities($user_name))?>!</h2>
     </div>
     <div class="Menu-Button">
       <i class="fa fa-bars text-white" id="toggle-menu-btn" aria-hidden="true"></i>
@@ -132,7 +146,7 @@ else {
         <!-- Menu Body -->
         <div class="menu-body">
             <div class="menu-username">
-              <h2>Welcome <?php echo(htmlentities($row['full_name']))?>!</h2>
+              <h2>Welcome <?php echo(htmlentities($user_name))?>!</h2>
             </div>
             <ul class="list-unstyled">
               <li>
@@ -166,7 +180,7 @@ else {
       
         <!-- Modal Header -->
         <div class="modal-header" style="font-size: 2.5rem;color:whitesmoke">
-          <h4 class="modal-title" style="font-size: inherit;color:inherit"><?php echo(htmlentities($row['full_name'])."'s Profile");?></h4>
+          <h4 class="modal-title" style="font-size: inherit;color:inherit"><?php echo(htmlentities($user_name)."'s Profile");?></h4>
           <button type="button" class="close" data-dismiss="modal" style="font-size:2.8rem;color:inherit">&times;</button>
         </div>
         
@@ -275,7 +289,7 @@ else {
 
   <!-- Welcome Tooltip -->
   <div id="welcome-tooltip">
-      Welcome <?php echo(htmlentities($row['full_name']))?>! <!--Username goes here -->
+      Welcome <?php echo(htmlentities($user_name))?>! <!--Username goes here -->
   </div>
   <!-- End of ToolTip -->
 
@@ -495,9 +509,11 @@ else {
 $(document).ready( function () {  
 
         const userId=<?php echo($_SESSION['user_id']); ?>;
+        console.log(userId);
         
         //Lock Input Field By Default as Modal is Opened    
         $("#my-profile").click(function () {
+          console.log("Modal Opened");
           $("input").prop('disabled', true);
           $("input").css('background-color','antiquewhite');
           // $(this).prev().css("background-color","antiquewhite");
