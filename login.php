@@ -79,14 +79,14 @@ session_start();
 						</div>
 						
 						<div>
-							<a href="#" class="txt1" style="color: #DD9106; font-size:2rem;" onclick="alert('Please login with username: admin & password: admin for demo.')">
+							<a href="#" class="txt1" style="color: #DD9106; font-size:2rem;" onclick="alert('Please login with email: admin@email.com & password: admin for demo.')">
 								Demo
 							</a>	
 						</div>
 					</div>
 
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button type="submit" class="login100-form-btn">
 							Login
 						</button>
 					</div>

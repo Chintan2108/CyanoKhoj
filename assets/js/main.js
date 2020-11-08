@@ -7,6 +7,10 @@
 !(function($) {
   "use strict";
 
+  
+
+ 
+  
   // Preloader
   $(window).on('load', function() {
     if ($('#preloader').length) {
@@ -34,9 +38,9 @@
 
 //Hide Menu if clicked outside
   const $menu = $('.Dropdown-Menu');
+  const $modal=$('.modal');
 $(document).mouseup(e => {
-   if (!$menu.is(e.target) // if the target of the click isn't the container...
-   && $menu.has(e.target).length === 0) // ... nor a descendant of the container
+   if (!$menu.is(e.target) && $menu.has(e.target).length === 0 && !$modal.is(e.target) && $modal.has(e.target).length === 0 ) 
    {
      $('.Dropdown-Menu').slideUp("fast");
   }
@@ -122,6 +126,7 @@ $(document).mouseup(e => {
       }
     }
   });
+
 
   // Porfolio isotope and filter
   $(window).on('load', function() {

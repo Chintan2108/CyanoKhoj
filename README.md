@@ -13,7 +13,7 @@
 
 CyanoKhoj is a web-app which employs the citizen science program by tracking their tweets and subsequent data analysis on Google Earth Engine, aimed at effective CyanoHAB detection and monitoring in water bodies around the world. The objective is to identify potential CyanoHAB infested locations based on Twitter data analysis and location extraction and further analyze these locations using satellite data in Google Earth Engine.
 * [Web-app Link](http://34.67.7.17/CyanoKhoj/)
-  * Username: admin
+  * Email ID: admin@email.com
   * Password: admin
  * [Google Earth Engine Dashboard Link](https://chintanmaniyar.users.earthengine.app/view/cyanokhoj)
  * [Project Poster](https://docs.google.com/presentation/d/e/2PACX-1vQ9rbuXLe4Ga_1BsF5sj_-rRUBOJvv5pcW5d0HjJfu5JBLIXkWefIR7O75EfQw_PyBVa5lEw2LfH-7O/pub?start=false&loop=false&delayms=3000)
@@ -38,6 +38,19 @@ This is done by scraping tweets real-time feed and filtering them based on the p
 The following repositories contain detailed workflow and information the tweet analysis and location extraction task:
 * [Location Fetcher v1.8](https://github.com/Chintan2108/LocationFetcher-v1.8)
 * [Location Fetcher v2.1](https://github.com/Chintan2108/LocationFetcher-v2.1)
+
+### Comparative Analysis of Different distance metrics to filter Tweets
+
+| _Tweets_      |  _Cosine_     | _Soft Cosine_|    _WMD_      | _WMD-Relax_  |
+| :------------:| :------------:|:------------:|:------------: |:------------:|
+| You can see two of the toxic water plumes and what looks like an algae bloom in the middle from space. https://t.co/WQsHykYio4  | 0.0012850764  | 0.04648514  | 0.57122673946974  |0.594367796798155|
+|@JulianaMWatson @bergsham @HKrassenstein @realDonaldTrump Oh crap the red algae bloom wave the toxic one thanks for the info I’ll get the bleach| 0.0012786512 | 0.046485145 | 0.525980177763364 | 0.514069031544577 |
+|@realDonaldTrump Toxic red algae bloom is more like it| 0.007476028 | 0.04648514 | 0.68321624849994 | 0.451862241456097 |
+| @gwsuperfan @realDonaldTrump Like a toxic algae bloom. | 0.008209193 | 0.04648514 | 0.747027618034671 | 0.474957523799558 |
+| Israeli scientists who specialize in cleaning algae from large bodies of water were brought in to help curb toxic algae in Florida's Lake Okeechobee. Via @Jerusalem_Post. https://t.co/AtdGg6JrES | 0.00074861257 | 0.013163705 | 0.55591127109817 | 0.489181017595289 |
+
+**Inference :** The tweets are first preprocessed by tokenizing, removing stop words, hastags, user names etc and embedded to vectors using the **glove twitter-25** embedding. Four similarities - Cosine, Soft Cosine, WMD (Word Mover Distance ) and WMD Relax are calculated between the tweets and the [query](https://github.com/Chintan2108/CyanoKhoj/blob/9d134b73a8458b3d0c41a51cac5d0c80cc52f4be/tweet_tracker.py#L30) containing the filter keywords. As it could be seen the similarity increases between the [query](https://github.com/Chintan2108/CyanoKhoj/blob/9d134b73a8458b3d0c41a51cac5d0c80cc52f4be/tweet_tracker.py#L30) and the tweets in case of WMD and WMD-Relax in comparison to the cosine and soft similarity metrics. 
+
 
 ### Geospatial Analysis on Google Earth Engine
 

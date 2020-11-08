@@ -32,8 +32,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------------------
-  # Back to top button
-  --------------------------------------------------------------*/
+    # Back to top button
+    --------------------------------------------------------------*/
 .back-to-top {
   position: fixed;
   display: none;
@@ -68,8 +68,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------------------
-  # Preloader
-  --------------------------------------------------------------*/
+    # Preloader
+    --------------------------------------------------------------*/
 #preloader {
   position: fixed;
   top: 0;
@@ -119,8 +119,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*-------------------------------------------------
-  #Welcome Tooltip Displaying User Name
-  ------------------------------------------*/
+    #Welcome Tooltip Displaying User Name
+    ------------------------------------------*/
 #welcome-tooltip {
   position: fixed;
   bottom: 1%;
@@ -185,8 +185,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /*-------------End of Tooltip Style---------*/
 /*--------------------------------------------------------------
-  # Disable aos animation delay on mobile devices
-  --------------------------------------------------------------*/
+    # Disable aos animation delay on mobile devices
+    --------------------------------------------------------------*/
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
     -webkit-transition-delay: 0 !important;
@@ -195,8 +195,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------------------
-  # Header
-  --------------------------------------------------------------*/
+    # Header
+    --------------------------------------------------------------*/
 #header {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -329,6 +329,75 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.tooltip {
+  z-index: 100000000;
+  font-size: 1.6rem;
+}
+
+.modal-dialog {
+  position: absolute;
+  top: 40%;
+  font-size: 3rem;
+  left: 50%;
+  width: 100%;
+  -webkit-transform: translate(-50%, -50%) !important;
+          transform: translate(-50%, -50%) !important;
+  -webkit-box-shadow: 2px 4px 8px 1px black;
+          box-shadow: 2px 4px 8px 1px black;
+}
+
+.modal-dialog .modal-content {
+  background: #1e272e;
+  padding: 1rem 1rem;
+}
+
+.modal-dialog .modal-content .modal-header {
+  border: none;
+}
+
+.modal-dialog .modal-content .modal-body .input-group {
+  font-size: 1.9rem;
+}
+
+.modal-dialog .modal-content .modal-body .input-group .input-group-text {
+  font-size: inherit;
+  width: 13rem;
+  background-color: #ffa801;
+  color: black;
+  font-weight: 600;
+  border: none;
+  border-radius: 0;
+  border-right: .18rem solid #0b0e0f;
+}
+
+.modal-dialog .modal-content .modal-body .input-group .fa {
+  font-size: 2.5rem;
+  margin-left: 1rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  color: #f6b93b;
+  cursor: pointer;
+}
+
+.modal-dialog .modal-content .modal-body .input-group input {
+  font-size: inherit;
+  background-color: antiquewhite;
+}
+
+.modal-dialog .modal-content .modal-body .input-group input[type=email] {
+  cursor: not-allowed;
+}
+
+.modal-dialog .modal-content .modal-footer {
+  border: none;
+}
+
+.modal-dialog .modal-content .modal-footer .btn {
+  font-size: 1.8rem;
+  border-radius: 1rem;
+}
+
 #header.header-scrolled, #header.header-inner-pages {
   background: rgba(0, 0, 0, 0.8);
 }
@@ -356,8 +425,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------------------
-  # Hero Section
-  --------------------------------------------------------------*/
+    # Hero Section
+    --------------------------------------------------------------*/
 #hero {
   width: 100%;
   height: auto;
@@ -457,8 +526,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------------------
-  # Sections General
-  --------------------------------------------------------------*/
+    # Sections General
+    --------------------------------------------------------------*/
 section {
   padding: 6.0rem 0;
   overflow: hidden;
@@ -500,8 +569,8 @@ section {
 }
 
 /*--------------------------------------------------------------
-  # About
-  --------------------------------------------------------------*/
+    # About
+    --------------------------------------------------------------*/
 .about .content h3 {
   font-weight: 700;
   font-size: 2.8rem;
@@ -569,8 +638,8 @@ section {
 }
 
 /*--------------------------------------------------------------
-  # Clients
-  --------------------------------------------------------------*/
+    # Clients
+    --------------------------------------------------------------*/
 .clients {
   padding-top: 2.0rem;
 }
@@ -622,8 +691,8 @@ section {
 }
 
 /*--------------------------------------------------------------
-  # Features
-  --------------------------------------------------------------*/
+    # Features
+    --------------------------------------------------------------*/
 .features {
   padding-top: 2.0rem;
 }
@@ -658,8 +727,8 @@ section {
 }
 
 /*--------------------------------------------------------------
-  # Services
-  --------------------------------------------------------------*/
+    # Services
+    --------------------------------------------------------------*/
 .services .icon-box {
   text-align: center;
   border: .1rem solid #ebebeb;
@@ -727,8 +796,8 @@ section {
 }
 
 /*--------------------------------------------------------------
-  # Cta
-  --------------------------------------------------------------*/
+    # Cta
+    --------------------------------------------------------------*/
 .cta {
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(2, 2, 2, 0.5)), to(rgba(0, 0, 0, 0.5))), url("../img/cta-bg.jpg") fixed center center;
   background: linear-gradient(rgba(2, 2, 2, 0.5), rgba(0, 0, 0, 0.5)), url("../img/cta-bg.jpg") fixed center center;
@@ -769,8 +838,8 @@ section {
 }
 
 /*--------------------------------------------------------------
-  # Portfolio
-  --------------------------------------------------------------*/
+    # Portfolio
+    --------------------------------------------------------------*/
 .portfolio .portfolio-item {
   margin-bottom: 3.0rem;
 }
@@ -907,8 +976,8 @@ section {
 }
 
 /*--------------------------------------------------------------
-  # Counts
-  --------------------------------------------------------------*/
+    # Counts
+    --------------------------------------------------------------*/
 .counts .content {
   padding: 3.0rem 0;
 }
@@ -989,8 +1058,8 @@ section {
 }
 
 /*--------------------------------------------------------------
-  # Testimonials
-  --------------------------------------------------------------*/
+    # Testimonials
+    --------------------------------------------------------------*/
 .testimonials {
   padding: 8.0rem 0;
   background: url("../img/testimonials-bg.jpg") no-repeat;
@@ -1093,8 +1162,8 @@ section {
 }
 
 /*--------------------------------------------------------------
-  # Team
-  --------------------------------------------------------------*/
+    # Team
+    --------------------------------------------------------------*/
 .team {
   background: #fff;
   padding: 6.0rem 0;
@@ -1181,8 +1250,8 @@ section {
 }
 
 /*--------------------------------------------------------------
-  # Contact
-  --------------------------------------------------------------*/
+    # Contact
+    --------------------------------------------------------------*/
 .contact .info {
   width: 100%;
   background: #fff;
@@ -1340,8 +1409,8 @@ section {
 }
 
 /*--------------------------------------------------------------
-  # Breadcrumbs
-  --------------------------------------------------------------*/
+    # Breadcrumbs
+    --------------------------------------------------------------*/
 .breadcrumbs {
   padding: 1.5rem 0;
   background: whitesmoke;
@@ -1392,8 +1461,8 @@ section {
 }
 
 /*--------------------------------------------------------------
-  # Portfolio Details
-  --------------------------------------------------------------*/
+    # Portfolio Details
+    --------------------------------------------------------------*/
 .portfolio-details {
   padding-top: 4.0rem;
 }
@@ -1480,8 +1549,8 @@ section {
 }
 
 /*--------------------------------------------------------------
-  # Footer
-  --------------------------------------------------------------*/
+    # Footer
+    --------------------------------------------------------------*/
 #footer {
   background: black;
   padding: 0 0 3.0rem 0;

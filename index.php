@@ -1,16 +1,35 @@
 <?php 
 session_start();
+$user_name='';
 
-if (isset($_SESSION['uname']) == FALSE) {
+if (isset($_SESSION['uname']) == FALSE) 
+{
   echo "<script> location.href='login.php' </script>";
 }
-else {
 
-  $json = exec("python3 tweet_tracker.py");
-  $arr = json_decode($json, TRUE);
+else 
+{
+    $json = exec("python3 tweet_tracker.py");
+    $arr = json_decode($json, TRUE);
 
+    if(isset($_SESSION['static_user']))
+    {
+      if($_SESSION['static_user'] === true)
+      {
+        $user_name=$_SESSION['uname'];
+        // echo($_SESSION['user_id']);
+      }
+    }
+
+    else
+    {
+      require_once("db-connection.php");
+      $stmt=$conn->prepare("SELECT full_name FROM register_user WHERE user_id=".$_SESSION['user_id']);
+      $stmt->execute();
+      $row=$stmt->fetch(PDO::FETCH_ASSOC);
+      $user_name=$row['full_name'];
+    }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -43,6 +62,7 @@ else {
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+ 
 
   <!-- =======================================================
   * Template Name: Gp - v2.0.0
@@ -104,7 +124,7 @@ else {
     </div>
     <!-- MENU -->
     <div class="nav-username">
-      <h2> Welcome <?php echo($_SESSION['uname'])?>!</h2>
+      <h2> Welcome <?php echo(htmlentities($user_name))?>!</h2>
     </div>
     <div class="Menu-Button">
       <i class="fa fa-bars text-white" id="toggle-menu-btn" aria-hidden="true"></i>
@@ -126,14 +146,14 @@ else {
         <!-- Menu Body -->
         <div class="menu-body">
             <div class="menu-username">
-              <h2>Welcome <?php echo($_SESSION['uname'])?>!</h2>
+              <h2>Welcome <?php echo(htmlentities($user_name))?>!</h2>
             </div>
             <ul class="list-unstyled">
               <li>
                 <a href="#footer">About</a>
               </li>
               <li>
-                <a href="#">Your Profile</a>
+               <a data-toggle="modal" id="my-profile" data-target="#myModal" style=" color:#ffc451;cursor: pointer;">My Profile</a>
               </li>
               <li>
                 <a href="#cta">Get Tweet Locations</a>
@@ -152,6 +172,65 @@ else {
     <!-- DropDown Menu-->  
 </div>
 <!-- Navbar end -->
+
+<!-- MY PROFILE MODAL -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header" style="font-size: 2.5rem;color:whitesmoke">
+          <h4 class="modal-title" style="font-size: inherit;color:inherit"><?php echo(htmlentities($user_name)."'s Profile");?></h4>
+          <button type="button" class="close" data-dismiss="modal" style="font-size:2.8rem;color:inherit">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Full Name</span>
+              </div>
+              <input type="text" class="form-control" id="full-name" value="Name">
+              <i class="fa fa-pencil-square-o edit-btn" aria-hidden="true"></i>
+            </div>  
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Email</span>
+              </div>
+              <input type="email" class="form-control" id="email" title="Contact Administrator to update Email Id." value="abc@gmail.com">
+              <i class="fa fa-exclamation-circle text-white" aria-hidden="true"  data-toggle="tooltip" title="Contact Administrator to update Email Id."></i>
+            </div> 
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Organisation</span>
+              </div>
+              <input type="text" class="form-control"  id="organisation" value="Organisation Name">
+              <i class="fa fa-pencil-square-o edit-btn" aria-hidden="true"></i>
+            </div> 
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text">State</span>
+              </div>
+              <input type="text" class="form-control"  id="state" value="State Name">
+              <i class="fa fa-pencil-square-o edit-btn" aria-hidden="true"></i>
+            </div> 
+          </form>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <input type="button" class="btn" value="Save Changes" id="apply-changes-btn" style="background: #05d3ff;color: white;">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+</div>
+  
   
 
   <!-- ======= Hero Section ======= -->
@@ -161,7 +240,13 @@ else {
       <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
         <div class="col-xl-12 col-lg-8">
           <h1>CyanoHAB monitoring using Twitter Data<span>.</span></h1>
-          <h2 style="text-align: justify;" >This is a geo-spatial web platform for automated real time detection of toxic aquatic microbe - Cyanobacterial Harmful Algal blooms (CyanoHABs). The data collection for this platform employs citizen science using Twitter Platform. Remote Sensing data analysis can be performed on the Google Earth Engine (GEE) dashboard for Sentinel-3. This strengthens the retrospective research valley by constant bio-volume intensity monitoring of remote sensing data and ultimately serve as a long term eye to track and arrest CyanoHAB, a biological threat causing environmental imbalance. <a href="https://docs.google.com/presentation/d/e/2PACX-1vQ9rbuXLe4Ga_1BsF5sj_-rRUBOJvv5pcW5d0HjJfu5JBLIXkWefIR7O75EfQw_PyBVa5lEw2LfH-7O/pub?start=false&loop=false&delayms=3000" target="_blank">Project Poster</a> </h2>
+          <h2 style="text-align: justify;" >This is a geo-spatial web platform for automated real time detection of toxic aquatic 
+          microbe - Cyanobacterial Harmful Algal blooms (CyanoHABs). The data collection for this platform employs citizen science 
+          using Twitter Platform. Remote Sensing data analysis can be performed on the Google Earth Engine (GEE) dashboard for 
+          Sentinel-3. This strengthens the retrospective research valley by constant bio-volume intensity monitoring of remote 
+          sensing data and ultimately serve as a long term eye to track and arrest CyanoHAB, a biological threat causing environmental 
+          imbalance. 
+          <a href="https://docs.google.com/presentation/d/e/2PACX-1vQ9rbuXLe4Ga_1BsF5sj_-rRUBOJvv5pcW5d0HjJfu5JBLIXkWefIR7O75EfQw_PyBVa5lEw2LfH-7O/pub?start=false&loop=false&delayms=3000" target="_blank">Project Poster</a> </h2>
         </div>
       </div>
 
@@ -197,13 +282,14 @@ else {
           </div>
         </div>
       </div>
-
     </div>
+
+    
   </section><!-- End Hero -->
 
   <!-- Welcome Tooltip -->
   <div id="welcome-tooltip">
-      Welcome <?php echo($_SESSION['uname'])?>! <!--Username goes here -->
+      Welcome <?php echo(htmlentities($user_name))?>! <!--Username goes here -->
   </div>
   <!-- End of ToolTip -->
 
@@ -399,6 +485,7 @@ else {
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
+
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
@@ -409,9 +496,93 @@ else {
   <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
   <script src="assets/vendor/counterup/counterup.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
+ <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   -->
+  
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+  <script>
+      
+$(document).ready( function () {  
+
+        const userId=<?php echo($_SESSION['user_id']); ?>;
+        
+        //Lock Input Field By Default as Modal is Opened    
+        $("#my-profile").click(function () {
+          $("input").prop('disabled', true);
+          $("input").css('background-color','antiquewhite');
+          $("#apply-changes-btn").css({'background-color':'#6c757d','font-weight':'500','cursor': 'not-allowed'});
+          
+          //Fetch from Database using ajax
+          
+        /*   $.ajax({
+                  url: "fetch-user.php",
+                  method:"POST",
+                  data:{userId:userId},
+                  success:function(response)
+                  {
+                    //Encode response into array
+                    arr=JSON.parse(response);
+                    
+                    //Insert the fetched data into modal input fields
+                    $("#full-name").val(arr[0]["name"]);
+                    $("#email").val(arr[0]["email"]);
+                    $("#organisation").val(arr[0]["organisation"]);
+                    $("#state").val(arr[0]["state"]);
+                  }
+                });
+ */
+           
+          });
+
+        //Unlock respective input field as edit btn is clicked  
+        $(".edit-btn").on('click', function(){
+          $(this).prev().prop("disabled",false);
+          $(this).prev().css("background-color","aliceblue");
+          $(this).prev().focus();
+        });
+
+        $(".modal .modal-body input").change( function(){
+            $("#apply-changes-btn").prop("disabled",false);
+            $("#apply-changes-btn").css({'background-color':'#28a745','font-weight':'600','cursor': 'pointer'});
+        });
+
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        })
+
+      $("#apply-changes-btn").click( function(){
+        let  name=$("#full-name").val();
+        let  organisation=$("#organisation").val();
+        let  state=$("#state").val();
+         
+        /* $.ajax({
+                url: "edit-user.php",
+                method:"POST",
+                data:{userId:userId,name:name,organisation:organisation,state:state},
+                success:function(response)
+                {
+                  alert(response);
+                  $("input").prop('disabled', true);
+                  $("input").css('background-color','antiquewhite');
+                  $("#apply-changes-btn").prop("disabled",false);
+                  $("#apply-changes-btn").css({'background-color':'#6c757d','font-weight':'500','cursor': 'not-allowed'});
+                  $(".nav-username h2,.menu-username h2").html('Welcome '+name+'!');
+                  $(".modal-title").html(name+"'s Profile");
+                }
+              }); */
+
+
+      });
+
+   
+          
+});
+
+  </script>
 
 </body>
 
